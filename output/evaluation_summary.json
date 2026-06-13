@@ -1,0 +1,129 @@
+{
+  "evaluation_set_size": 129,
+  "judge_model": "gpt-oss-120b",
+  "overall": {
+    "faiss": {
+      "n": 129,
+      "accuracy": 0.798,
+      "avg_score": 2.36,
+      "avg_latency_s": 3.0,
+      "avg_input_tokens": 2212,
+      "avg_output_tokens": 70,
+      "total_cost_usd": 0.0241,
+      "avg_cost_per_query": 0.000187
+    },
+    "pageindex": {
+      "n": 129,
+      "accuracy": 0.884,
+      "avg_score": 2.6,
+      "avg_latency_s": 43.04,
+      "avg_input_tokens": 10617,
+      "avg_output_tokens": 913,
+      "total_cost_usd": 0.0,
+      "avg_cost_per_query": 0.0
+    }
+  },
+  "by_difficulty": {
+    "single_hop": {
+      "faiss": {
+        "n": 69,
+        "accuracy": 0.855,
+        "avg_score": 2.46,
+        "avg_latency_s": 3.03,
+        "avg_input_tokens": 2128,
+        "avg_output_tokens": 74,
+        "total_cost_usd": 0.0125,
+        "avg_cost_per_query": 0.000182
+      },
+      "pageindex": {
+        "n": 69,
+        "accuracy": 0.87,
+        "avg_score": 2.59,
+        "avg_latency_s": 44.45,
+        "avg_input_tokens": 11018,
+        "avg_output_tokens": 967,
+        "total_cost_usd": 0.0,
+        "avg_cost_per_query": 0.0
+      }
+    },
+    "multi_hop": {
+      "faiss": {
+        "n": 60,
+        "accuracy": 0.733,
+        "avg_score": 2.23,
+        "avg_latency_s": 2.95,
+        "avg_input_tokens": 2308,
+        "avg_output_tokens": 66,
+        "total_cost_usd": 0.0116,
+        "avg_cost_per_query": 0.000193
+      },
+      "pageindex": {
+        "n": 60,
+        "accuracy": 0.9,
+        "avg_score": 2.62,
+        "avg_latency_s": 41.43,
+        "avg_input_tokens": 10156,
+        "avg_output_tokens": 852,
+        "total_cost_usd": 0.0,
+        "avg_cost_per_query": 0.0
+      }
+    }
+  },
+  "by_library": {
+    "numpy": {
+      "faiss": {
+        "n": 65,
+        "accuracy": 0.754,
+        "avg_score": 2.15,
+        "avg_latency_s": 3.22,
+        "avg_input_tokens": 2142,
+        "avg_output_tokens": 74,
+        "total_cost_usd": 0.0119,
+        "avg_cost_per_query": 0.000183
+      },
+      "pageindex": {
+        "n": 65,
+        "accuracy": 0.815,
+        "avg_score": 2.4,
+        "avg_latency_s": 51.91,
+        "avg_input_tokens": 14251,
+        "avg_output_tokens": 1075,
+        "total_cost_usd": 0.0,
+        "avg_cost_per_query": 0.0
+      }
+    },
+    "pandas": {
+      "faiss": {
+        "n": 64,
+        "accuracy": 0.844,
+        "avg_score": 2.56,
+        "avg_latency_s": 2.77,
+        "avg_input_tokens": 2282,
+        "avg_output_tokens": 66,
+        "total_cost_usd": 0.0122,
+        "avg_cost_per_query": 0.000191
+      },
+      "pageindex": {
+        "n": 64,
+        "accuracy": 0.953,
+        "avg_score": 2.81,
+        "avg_latency_s": 34.03,
+        "avg_input_tokens": 6927,
+        "avg_output_tokens": 749,
+        "total_cost_usd": 0.0,
+        "avg_cost_per_query": 0.0
+      }
+    }
+  },
+  "winner_breakdown": {
+    "faiss_wins": 17,
+    "pageindex_wins": 26,
+    "ties": 86
+  },
+  "pageindex_navigation": {
+    "nav_success_rate": 0.798,
+    "questions_with_nav_data": 129,
+    "accuracy_when_reached_target": 0.922,
+    "accuracy_when_missed_target": 0.731
+  }
+}

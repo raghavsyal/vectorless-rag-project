@@ -1,0 +1,2712 @@
+[
+  {
+    "id": "q0001",
+    "question": "When using `pandas.DataFrame.rename`, what are the accepted values for the `axis` parameter, and which specific value should be used to target and rename the columns?",
+    "ground_truth": "For `pandas.DataFrame.rename`, the `axis` parameter accepts `{0 or ‘index’, 1 or ‘columns’}`. To rename the columns, you should set the `axis` parameter to `1` or `'columns'`. The default value for `axis` is `0` or `'index'`, which targets the index.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The `axis` argument accepts either the integer codes 0 and 1 or the string names `'index'` and `'columns'`. To rename the columns you should set `axis=1` (or equivalently `axis='columns'`), or simply use the `columns=` keyword argument.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7065,
+    "output_tokens": 538,
+    "latency_s": 4.584,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0002",
+    "question": "When utilizing `numpy.lexsort` with multiple keys, which specific key in the provided sequence serves as the primary determinant for the sort order?",
+    "ground_truth": "When `numpy.lexsort` is used with multiple sorting keys, the last key in the sequence is used for the primary sort order. Any ties that occur based on the primary key are then resolved by the second-to-last key, and this process continues backwards through the sequence of keys.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "In `numpy.lexsort`, the primary sort key is the **last** key in the sequence you provide; sorting is performed using the last key first, then the second‑to‑last, and so on.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/generated/numpy.lexsort.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.lexsort.html"
+    ],
+    "hops": 5,
+    "input_tokens": 14256,
+    "output_tokens": 895,
+    "latency_s": 62.47,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0003",
+    "question": "What are the two primary optimized multi-axis indexing methods in pandas recommended for production code, and what kinds of inputs does the label-based method specifically accept?",
+    "ground_truth": "The two primary optimized multi-axis indexing methods recommended for production code are `.loc` and `.iloc`. The `.loc` method, which is primarily label-based, accepts various inputs including a single label (e.g., 5 or 'a'), a list or array of labels (e.g., ['a', 'b', 'c']), a slice object with labels where both start and stop are included (e.g., 'a':'f'), a boolean array, a callable function, or a tuple of row and column indices.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The two primary optimized multi‑axis indexing methods recommended for production code are ``DataFrame.loc`` (label‑based) and ``DataFrame.iloc`` (integer‑position‑based). ``loc`` accepts a variety of label inputs: a single label, a list or array of labels, a slice of labels (both start and stop are inclusive), a boolean array of the same length as the axis, an alignable boolean Series, an alignable Index, or a callable that returns any of these valid selections.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html"
+    ],
+    "hops": 3,
+    "input_tokens": 6712,
+    "output_tokens": 1076,
+    "latency_s": 2.654,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0004",
+    "question": "What are the key additional aspects of data interpretation described by a `numpy.dtype` object, beyond the data's fundamental type (like integer or float) and its memory size (bit-width)?",
+    "ground_truth": "Beyond its fundamental type and memory size, a `numpy.dtype` object describes the byte order of the data (little-endian or big-endian). For structured data types, it details the names, data-types, and memory locations of its fields. If the data type is a sub-array, it describes its shape and data type.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "A NumPy dtype does more than just state the basic scalar type and its size. It also records the byte order (endianness) of the data, and for structured dtypes it records the names of the fields, the dtype of each field, and where each field lives within the memory block. If the dtype represents a sub‑array, it records the sub‑array’s shape and the element dtype. These extra pieces let NumPy know how to interpret the raw bytes of each array element.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/arrays.dtypes.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/arrays.dtypes.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7669,
+    "output_tokens": 614,
+    "latency_s": 62.134,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0005",
+    "question": "According to NEP 32, which specific NumPy financial functions are proposed for deprecation and removal, and what is their intended new package name?",
+    "ground_truth": "NEP 32 proposes deprecating and ultimately removing the financial functions: fv, ipmt, irr, mirr, nper, npv, pmt, ppmt, pv, and rate. These functions will be moved to an independent repository and provided as a separate package named `numpy_financial`.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "NEP 32 proposes deprecating and eventually removing the ten financial functions fv, ipmt, irr, mirr, nper, npv, pmt, ppmt, pv, and rate. They will be moved to an independent package named numpy_financial.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/numpy_2_0_migration_guide.html",
+      "https://numpy.org/neps/nep-0023-backwards-compatibility.html",
+      "https://numpy.org/neps/nep-0032-remove-financial-functions.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/neps/nep-0032-remove-financial-functions.html"
+    ],
+    "hops": 6,
+    "input_tokens": 18246,
+    "output_tokens": 858,
+    "latency_s": 61.946,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0006",
+    "question": "What are the recommended assertion functions for comparing floating-point numbers within NumPy's test support module, and which ones are explicitly not recommended for this purpose?",
+    "ground_truth": "For consistent floating-point comparisons in NumPy's test support, it is recommended to use `assert_allclose`, `assert_array_almost_equal_nulp`, or `assert_array_max_ulp`. Conversely, functions such as `assert_`, `assert_almost_equal`, `assert_approx_equal`, `assert_array_almost_equal`, and `print_assert_equal` are not recommended for floating-point comparisons.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "Within NumPy’s test support module the functions that should be used for floating‑point comparisons are `assert_allclose`, `assert_array_almost_equal_nulp` and `assert_array_max_ulp`.  The older “assert” helpers – `assert_`, `assert_almost_equal`, `assert_approx_equal`, `assert_array_almost_equal` and `print_assert_equal` – are explicitly marked as not recommended for this purpose.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.testing.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/routines.testing.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7667,
+    "output_tokens": 946,
+    "latency_s": 1.906,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0007",
+    "question": "When applying `numpy.transpose` to a 1-D array, how does the function transform the array, and what is a recommended way to convert a 1-D array into a 2-D column vector?",
+    "ground_truth": "For a 1-D array, `numpy.transpose` returns an unchanged view of the original array, as a transposed vector is considered the same. To convert a 1-D array into a 2-D column vector, an additional dimension must be added, which can be achieved using `np.atleast_2d(a).T` or `a[:, np.newaxis]`.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "When you call numpy.transpose on a 1‑D array, NumPy simply returns an unchanged view of the original array because a transposed vector is the same as the original vector. To turn a 1‑D array into a 2‑D column vector you must add a new axis, e.g., using np.atleast_2d(a).T or a[:, np.newaxis].",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/arrays.ndarray.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.transpose.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.transpose.html"
+    ],
+    "hops": 4,
+    "input_tokens": 12200,
+    "output_tokens": 1067,
+    "latency_s": 61.033,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0008",
+    "question": "According to NEP 45, what specific C dialect should be used when contributing to NumPy's C implementation, and what are the mandated code layout rules regarding indentation and maximum line length?",
+    "ground_truth": "NEP 45 mandates that the C dialect used in NumPy's C implementation must be C99, as defined by ISO/IEC 9899:1999, and explicitly prohibits GCC extensions. For code layout, it requires 4-space indents with no tabs, and dictates that no line should be longer than 80 characters.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "NEP 45 specifies that NumPy’s C code must be written using the C99 dialect (ISO C99) and must not rely on GCC extensions.  The style guide also mandates a 4‑space indentation (no tabs) and limits every line to a maximum of 80 characters.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/dev/index.html",
+      "https://numpy.org/neps/nep-0045-c_style_guide.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/neps/nep-0045-c_style_guide.html"
+    ],
+    "hops": 4,
+    "input_tokens": 11227,
+    "output_tokens": 1390,
+    "latency_s": 2.547,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0009",
+    "question": "When `numpy.random.permutation` is used with a multi-dimensional array, how does it perform the shuffle?",
+    "ground_truth": "If `x` is a multi-dimensional array, `numpy.random.permutation` shuffles the elements only along its first index. It makes a copy of the array and shuffles these elements randomly, returning the permuted array.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "When `numpy.random.permutation` is called on a multi‑dimensional array, it does not shuffle every element individually; it only permutes the array along its first axis. In other words, the rows (or the first‑axis slices) are shuffled as whole units, preserving the internal ordering of each row.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.permutation.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.permutation.html"
+    ],
+    "hops": 6,
+    "input_tokens": 17058,
+    "output_tokens": 1290,
+    "latency_s": 63.036,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0010",
+    "question": "When using PyArrow-backed string support in pandas, what is the key difference in the return types for operations when comparing `pd.StringDtype(\"pyarrow\")` with `pd.ArrowDtype(pa.string())`?",
+    "ground_truth": "While `pd.StringDtype(\"pyarrow\")` and `pd.ArrowDtype(pa.string())` generally lead to similar behavior for data operations, `pd.StringDtype(\"pyarrow\")` can return NumPy-backed nullable types. Conversely, `pd.ArrowDtype(pa.string())` will consistently return an `ArrowDtype`.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The key difference is the type of object that pandas returns for operations. With `pd.StringDtype(\"pyarrow\")` pandas keeps the result as a pandas ExtensionArray (a `StringArray` that wraps the underlying Arrow array), so the dtype stays a pandas string dtype. With `pd.ArrowDtype(pa.string())` the same operations return the native PyArrow object (e.g., a `pyarrow.Array` or `ChunkedArray`), so the result is an Arrow type rather than a pandas ExtensionArray.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.StringDtype.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.ArrowDtype.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.array.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.StringDtype.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.ArrowDtype.html"
+    ],
+    "hops": 6,
+    "input_tokens": 16022,
+    "output_tokens": 2172,
+    "latency_s": 63.4,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0011",
+    "question": "When developing an extension module using NumPy's C API, what is the constant provided to determine the size of a C `int` at compile time, and in which header file are these system configuration constants primarily defined?",
+    "ground_truth": "The constant provided to determine the size of a C `int` at compile time is `NPY_SIZEOF_INT`. These system configuration constants, including data type sizes, are mostly defined in `numpyconfig.h`, which is included in `ndarrayobject.h`.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "Use the constant `NPY_SIZEOF_INT` to get the size of a C `int` at compile time. These system‑configuration constants are defined in `numpyconfig.h` (which is included by `ndarrayobject.h`).",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/c-api/config.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/c-api/config.html"
+    ],
+    "hops": 5,
+    "input_tokens": 12724,
+    "output_tokens": 1244,
+    "latency_s": 61.974,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0012",
+    "question": "Which specific NumPy indexing routines are available for inserting data into arrays, and what is the primary purpose of the `putmask` function?",
+    "ground_truth": "NumPy provides `place`, `put`, `put_along_axis`, `putmask`, and `fill_diagonal` as indexing routines for inserting data into arrays. The `putmask` function specifically changes elements of an array based on conditional and input values.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "We need to fetch a page we have seen in cross-reference links. The cross-reference link for putmask is given as that URL, but it's not found. Perhaps the correct URL includes a trailing slash? Try https://numpy.org/devdocs/reference/generated/numpy.putmask.html? Already.\n\nMaybe the site uses .html? Could be .html? Already.\n\nMaybe the site uses .html? Hmm.\n\nMaybe the correct URL is https://numpy.org/devdocs/reference/generated/numpy.putmask.html? It gave not found. Could be that the page is under",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.indexing.html"
+    ],
+    "pages_used": [],
+    "hops": 5,
+    "input_tokens": 15301,
+    "output_tokens": 1316,
+    "latency_s": 87.353,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0013",
+    "question": "What specific real-world phenomena are mentioned in the NumPy documentation for `numpy.random.RandomState.gumbel` as historical applications for the Gumbel distribution?",
+    "ground_truth": "The Gumbel distribution has historically been used in the hydrology literature for modeling the occurrence of flood events. Additionally, it is applied to model maximum wind speed and rainfall rates, particularly in the context of extreme value problems.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The NumPy docs note that the Gumbel distribution has historically been used to model extreme‑value phenomena such as the maximum flood level in hydrology and the maximum wind speed in meteorology (i.e., the distribution of the largest observed values).",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/index.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/random/legacy.html",
+      "https://numpy.org/devdocs/reference/random/index.html"
+    ],
+    "hops": 6,
+    "input_tokens": 21732,
+    "output_tokens": 1764,
+    "latency_s": 61.329,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0014",
+    "question": "Given that `numpy.testing.assert_warns` has been deprecated, what alternatives are recommended for handling warnings, and from which version onwards is this deprecation effective?",
+    "ground_truth": "Since NumPy version 2.4, `numpy.testing.assert_warns` has been deprecated. Developers should use `warnings.catch_warnings` or `pytest.warns` instead for handling warnings.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "numpy.testing.assert_warns is deprecated starting with NumPy version 2.4. The documentation advises using the standard library’s warnings.catch_warnings context manager or the pytest.warns helper instead.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/testing.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_warns.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_warns.html"
+    ],
+    "hops": 4,
+    "input_tokens": 10705,
+    "output_tokens": 422,
+    "latency_s": 61.678,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0015",
+    "question": "Which NumPy functions are specifically listed for generating index arrays?",
+    "ground_truth": "NumPy provides several functions for generating index arrays, including `c_`, `r_`, `s_`, `nonzero`, `where`, `indices`, `ix_`, and `ogrid`. These routines facilitate the creation of indices by translating slice objects, identifying non-zero elements, or constructing grid representations.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The indexing routines page lists the following functions as those that generate index arrays: c_, r_, s_, nonzero, where, indices, ix_, ogrid, ravel_multi_index, unravel_index, diag_indices, diag_indices_from, mask_indices, tril_indices, tril_indices_from, triu_indices, and triu_indices_from.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.indexing.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/routines.indexing.html"
+    ],
+    "hops": 2,
+    "input_tokens": 4890,
+    "output_tokens": 492,
+    "latency_s": 1.074,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0016",
+    "question": "In `pandas.from_dummies`, what is the purpose of the `default_category` parameter?",
+    "ground_truth": "The `default_category` parameter in `pandas.from_dummies` is used to specify the implied category when a value has none of the listed categories specified with a one, meaning if all dummy variables in a row are zero. It can be a single value for all variables or a dictionary directly mapping default categories to prefixes of a variable.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The `default_category` argument tells `pandas.from_dummies` which categorical value to assign when a row has no dummy column set to 1 (i.e., all zeros). It can be a single value applied to all variables or a dict mapping each variable prefix to its own default. The value is coerced to the column dtype when possible, and an error is raised if no default is supplied and a row lacks a category.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.from_dummies.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.from_dummies.html"
+    ],
+    "hops": 3,
+    "input_tokens": 4171,
+    "output_tokens": 616,
+    "latency_s": 1.485,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0017",
+    "question": "What is the initial value stored in `pandas.plotting.plot_params` and what is its primary function?",
+    "ground_truth": "The initial value stored in `pandas.plotting.plot_params` is `{'xaxis.compat': False}`. Its primary function is to store pandas plotting options, allowing for parameter aliasing. This enables using parameter names consistent with plot functions, while maintaining a canonical format.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The initial value of `pandas.plotting.plot_params` is a dictionary `{'xaxis.compat': False}`. Its primary function is to store pandas plotting options, providing a place for parameter aliasing so that you can use names matching plot function parameters while keeping them in a canonical format for later processing.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.plot_params.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.plot_params.html"
+    ],
+    "hops": 2,
+    "input_tokens": 2431,
+    "output_tokens": 435,
+    "latency_s": 1.1,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0018",
+    "question": "What is a critical constraint regarding the length of the DataFrame returned by `pandas.DataFrame.transform`, and what exception is raised if this constraint is violated?",
+    "ground_truth": "When using `pandas.DataFrame.transform`, the returned DataFrame must have the same length as the input DataFrame (`self`). If the returned DataFrame has a different length, a `ValueError` is raised.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The DataFrame returned by pandas.DataFrame.transform must have the same number of rows (length) as the original DataFrame. If the returned DataFrame has a different length, pandas raises a ValueError.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.transform.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.transform.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7291,
+    "output_tokens": 486,
+    "latency_s": 61.794,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0019",
+    "question": "What specific problems does NEP 52 aim to solve regarding NumPy's Python API for the 2.0 release?",
+    "ground_truth": "NEP 52 aims to address several problems with NumPy's Python API, which has evolved organically over many years. These include the difficulty for users to disambiguate similarly named functions and challenges with tab completion in IDEs due to a large, undefined API surface. Furthermore, libraries mimicking the NumPy API face significant implementation barriers, and the complexity makes teaching NumPy more difficult. The NEP also addresses the issue of developers' hesitancy to grow the API surface due to these existing concerns.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "NEP 52 targets the unwieldy size and unclear boundaries of NumPy’s Python API. It seeks to define a clean public‑private split, drop duplicated functions and aliases, and shrink the top‑level namespace so users can more easily discover the intended API. By doing so it reduces the learning curve for newcomers and lowers the implementation burden for NumPy‑compatible libraries and tooling.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/numpy_2_0_migration_guide.html",
+      "https://numpy.org/neps/nep-0052-python-api-cleanup.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/neps/nep-0052-python-api-cleanup.html"
+    ],
+    "hops": 5,
+    "input_tokens": 12719,
+    "output_tokens": 811,
+    "latency_s": 60.881,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0020",
+    "question": "What method does the `MT19937` bit generator offer to split an original pseudo-random sequence into distinct segments suitable for multiple worker processes?",
+    "ground_truth": "The `MT19937` bit generator provides the `MT19937.jumped` method. This method advances the state as if 2^128 random numbers have been generated, thereby allowing the original sequence to be split into distinct segments for use in each worker process.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The MT19937 bit generator provides a `jump()` method that advances the generator to a new, non‑overlapping state, allowing the original pseudo‑random sequence to be split into distinct segments for multiple worker processes.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/index.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/index.html"
+    ],
+    "hops": 6,
+    "input_tokens": 21236,
+    "output_tokens": 1590,
+    "latency_s": 62.897,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0021",
+    "question": "When using `numpy.random.RandomState.get_state`, under what conditions will the method return a dictionary representing the internal state instead of a tuple?",
+    "ground_truth": "The `numpy.random.RandomState.get_state` method returns a dictionary in two primary scenarios. This occurs if the optional `legacy` parameter is set to `False`. Additionally, a dictionary is returned if the underlying BitGenerator is not an instance of MT19937, regardless of the `legacy` parameter's default value.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The method returns a dictionary whenever you call `get_state` with `legacy=False` (the default) or when the RandomState’s underlying BitGenerator is not MT19937. In those cases the internal state is provided as a dict; only when `legacy=True` and the BitGenerator is MT19937 does it return the legacy tuple (otherwise a ValueError is raised).",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.get_state.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.get_state.html"
+    ],
+    "hops": 6,
+    "input_tokens": 17273,
+    "output_tokens": 1649,
+    "latency_s": 61.57,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0022",
+    "question": "The `DataFrame.rolling` method's `window` parameter supports defining windows based on time offsets. According to the pandas documentation on windowing operations, which *other* distinct types of windowing operations (such as expanding or exponentially weighted) also support specifying their window based on a time offset?",
+    "ground_truth": "According to the 'Overview' table in the Windowing operations documentation, only the 'Rolling window' operation supports time-based windows. The 'Weighted window', 'Expanding window', and 'Exponentially Weighted window' operations are explicitly listed as *not* supporting time-based windows.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "{\"action\": \"answer\", \"answer\": \"According to the Windowing Operations guide, the only windowing type that supports time‑offset windows is the Rolling window. Both Expanding windows and Exponentially Weighted windows (ewm) do not support specifying a window based on a time offset.\",",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.expanding.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/window.html"
+    ],
+    "pages_used": [],
+    "hops": 4,
+    "input_tokens": 6947,
+    "output_tokens": 1438,
+    "latency_s": 2.253,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0023",
+    "question": "When writing a DataFrame to an Excel file using `to_excel`, how can you configure the merging of cells for MultiIndex structures, and what are the possible values for this setting?",
+    "ground_truth": "When using `to_excel`, the `merge_cells` parameter controls whether MultiIndex index and columns are written as merged cells. If `merge_cells` is set to `True`, both MultiIndex index and columns will be written as merged cells. Alternatively, setting it to `'columns'` will merge MultiIndex column cells only. The default value for `merge_cells` is `False`, meaning no cells are merged by default.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "Use the `merge_cells` parameter of `DataFrame.to_excel`. It accepts a boolean or the string `'columns'`. Setting `merge_cells=True` merges both the MultiIndex index and column labels into merged Excel cells; setting `merge_cells='columns'` merges only the MultiIndex column headers; setting it to `False` (or leaving the default) disables any merging.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_excel.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_excel.html"
+    ],
+    "hops": 2,
+    "input_tokens": 2951,
+    "output_tokens": 508,
+    "latency_s": 61.553,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0024",
+    "question": "What is the purpose of the `class_column` parameter when using `pandas.plotting.radviz`?",
+    "ground_truth": "The `class_column` parameter specifies the name of the column in the DataFrame that contains the category name for each data point. This allows `radviz` to differentiate and potentially color data points based on their assigned category.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The `class_column` argument tells `pandas.plotting.radviz` which column in the DataFrame contains the categorical label for each observation. Those labels are used to assign colors (or a colormap) and to group the points in the RadViz plot, enabling you to see how different classes are positioned relative to the axes.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.andrews_curves.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.radviz.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.radviz.html"
+    ],
+    "hops": 4,
+    "input_tokens": 6609,
+    "output_tokens": 1045,
+    "latency_s": 1.956,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0025",
+    "question": "What is the default string used to split elements when calling `pandas.Series.str.get_dummies`?",
+    "ground_truth": "When using `pandas.Series.str.get_dummies`, the `sep` parameter, which specifies the string to split on, defaults to the pipe character (\"|\"). This means if not explicitly provided, the method will split string elements by \"|\" to create dummy variables.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The default separator string is the pipe character \"|\".",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.get_dummies.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.get_dummies.html"
+    ],
+    "hops": 3,
+    "input_tokens": 6642,
+    "output_tokens": 493,
+    "latency_s": 60.821,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0026",
+    "question": "When creating an `NpyIter` for an operation like `PyArray_CountNonzero` where the array is read-only and the inner loop is handled externally, what are some of the flags commonly used for initialization?",
+    "ground_truth": "For such an operation, common initialization flags for `NpyIter` include `NPY_ITER_READONLY` to ensure the array is never written to, and `NPY_ITER_EXTERNAL_LOOP` because the inner loop is handled outside the iterator for efficiency. Other flags like `NPY_ITER_REFS_OK` for reference types, `NPY_KEEPORDER` for memory order visitation, and `NPY_NO_CASTING` to prevent type casting are also typically used.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "Typical flags used when initializing an NpyIter for a read‑only operation with an external inner loop (as in PyArray_CountNonzero) include NPY_ITER_READONLY, NPY_ITER_EXTERNAL_LOOP, and NPY_ITER_REFS_OK. In addition, the iterator is often created with the order flag NPY_KEEPORDER (to follow memory layout) and the casting flag NPY_NO_CASTING (to avoid any type conversion).",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/arrays.nditer.html",
+      "https://numpy.org/devdocs/reference/c-api/iterator.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/c-api/iterator.html"
+    ],
+    "hops": 6,
+    "input_tokens": 22265,
+    "output_tokens": 1782,
+    "latency_s": 61.525,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0027",
+    "question": "What is the default character used as a delimiter when reading a file with `pandas.read_csv`?",
+    "ground_truth": "When using `pandas.read_csv`, the default character for the `sep` parameter, which treats a character or regex pattern as the delimiter, is a comma (','). This is explicitly stated in the parameter's documentation. If `sep=None`, the Python parsing engine can automatically detect the separator using its built-in sniffer tool, `csv.Sniffer`.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The default delimiter for pandas.read_csv is a comma (',').",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"
+    ],
+    "hops": 3,
+    "input_tokens": 4267,
+    "output_tokens": 456,
+    "latency_s": 1.536,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0028",
+    "question": "What is the primary purpose of the `pandas.plotting.autocorrelation_plot` function, and how can its output be interpreted to assess the randomness of a time series?",
+    "ground_truth": "The `pandas.plotting.autocorrelation_plot` function generates an autocorrelation plot for a time series to identify any periodic structure or correlation within the data across various lags. It essentially shows the correlation of a time series with a delayed copy of itself. These plots are useful for checking randomness in a dataset; if the data are random, the autocorrelations should be near zero for any time-lag separations, whereas significantly non-zero autocorrelations indicate non-randomness.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The `pandas.plotting.autocorrelation_plot` function creates an autocorrelation plot of a time‑series, showing how the series correlates with itself at different lag values. Its output is interpreted by examining the lag‑wise correlation points: if the series is random, the autocorrelations should hover around zero and stay within the 95%/99% confidence bands (horizontal lines). Any lag where the correlation point lies outside these bands (significantly non‑zero) signals a systematic pattern or periodicity, indicating the series is not random.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.autocorrelation_plot.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.autocorrelation_plot.html"
+    ],
+    "hops": 2,
+    "input_tokens": 2534,
+    "output_tokens": 619,
+    "latency_s": 1.177,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0029",
+    "question": "When using `numpy.ogrid` with slice notation, how does it interpret a step length provided as a complex number, such as `5j`?",
+    "ground_truth": "If the step length provided to `numpy.ogrid` is a complex number (e.g., 5j), the integer part of its magnitude is interpreted as specifying the number of points to create between the start and stop values. Critically, when a complex step length is used, the stop value is inclusive, unlike when the step length is not a complex number.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "When you use a slice like `start:stop:step` with `numpy.ogrid`, a real (non‑complex) step is treated as a regular spacing and the `stop` value is not included. If the step is given as a complex number (e.g., `5j`), NumPy ignores the sign and uses the integer part of the magnitude of the imaginary component as the number of points to generate, and the `stop` value becomes inclusive. Thus `5j` means \"create 5 equally‑spaced points from `start` to `stop`, including the endpoint\".",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.indexing.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.ogrid.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.ogrid.html"
+    ],
+    "hops": 4,
+    "input_tokens": 12597,
+    "output_tokens": 1276,
+    "latency_s": 61.664,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0030",
+    "question": "Does the `pandas.DataFrame.expanding` method support time-based windowing operations?",
+    "ground_truth": "No, the 'Expanding window' operation, which `pandas.DataFrame.expanding` implements, does not support time-based windows. The 'Windowing operations' overview explicitly notes 'No' for 'Supports time-based windows' in the row corresponding to 'Expanding window'. This means defining the window based on a time offset is not available for `expanding` operations.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "No. The `DataFrame.expanding` method does not support time‑based window specifications; it only expands based on the number of observations. Time‑based windows are available for rolling (e.g., `df.rolling('2D')`) but not for expanding.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.expanding.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/window.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.expanding.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/window.html"
+    ],
+    "hops": 4,
+    "input_tokens": 11093,
+    "output_tokens": 809,
+    "latency_s": 61.225,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0031",
+    "question": "What is a MultiIndex object in pandas, and what are the primary programmatic methods for its creation?",
+    "ground_truth": "The MultiIndex object serves as the hierarchical analogue to the standard Index object, storing axis labels in pandas objects. Conceptually, it can be viewed as an array of unique tuples. Primary methods for creating a MultiIndex include MultiIndex.from_arrays(), MultiIndex.from_tuples(), MultiIndex.from_product(), and MultiIndex.from_frame(). Additionally, the general Index constructor can return a MultiIndex when given a list of tuples.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "A pandas.MultiIndex is a hierarchical (multi‑level) index object that can be attached to pandas Series or DataFrame objects to represent multiple dimensions of labeling. The main programmatic ways to create a MultiIndex are the class methods: MultiIndex.from_arrays (convert parallel arrays), MultiIndex.from_tuples (convert a list of tuples), MultiIndex.from_product (build from the Cartesian product of iterables), and MultiIndex.from_frame (construct from a DataFrame).",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.html"
+    ],
+    "hops": 2,
+    "input_tokens": 3533,
+    "output_tokens": 424,
+    "latency_s": 1.021,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0032",
+    "question": "What environment variable allows testing the proposed \"weak\" promotion state for Python scalars in NumPy 1.24.x?",
+    "ground_truth": "To test the proposed \"weak\" promotion state for Python scalars in NumPy 1.24.x, the environment variable `NPY_PROMOTION_STATE` needs to be set. Valid values for this variable include `weak`, `weak_and_warn`, and `legacy`.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The environment variable is `NUMPY_EXPERIMENTAL_SCALAR_PROMOTION`, which can be set to enable testing of the proposed “weak” promotion behavior for Python scalars in NumPy 1.24.x.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/arrays.promotion.html",
+      "https://numpy.org/neps/nep-0050-scalar-promotion.html",
+      "https://numpy.org/neps/nep-0050-scalar-promotion.html",
+      "https://numpy.org/neps/nep-0050-scalar-promotion.html"
+    ],
+    "pages_used": [],
+    "hops": 6,
+    "input_tokens": 27299,
+    "output_tokens": 2027,
+    "latency_s": 73.4,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0033",
+    "question": "When utilizing the `pandas.DataFrame.get` method, what is the default behavior if the provided `key` is not found, and how can this return value be explicitly set by the user?",
+    "ground_truth": "If the `key` is not found when using `pandas.DataFrame.get`, the method returns the `default` value. By default, this `default` value is `None`. Users can explicitly set a different return value by passing an `object` to the `default` parameter, which will then be returned if the `key` is not found.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "If the key is not found, DataFrame.get returns the value of its `default` argument, which defaults to `None`. The user can change this by supplying a different value for the `default` parameter, e.g., `df.get(key, default='my_value')`.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.get.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.get.html"
+    ],
+    "hops": 3,
+    "input_tokens": 6925,
+    "output_tokens": 512,
+    "latency_s": 2.477,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0034",
+    "question": "When using `pandas.read_excel`, how can I specify which sheet(s) to read from an Excel file, and what is the default behavior if no sheet is explicitly chosen?",
+    "ground_truth": "The `sheet_name` parameter in `pandas.read_excel` controls which sheet(s) are read. It accepts a string for a specific sheet name, an integer for a zero-indexed sheet position, or a list of strings/integers to load multiple sheets. If `None` is passed, `read_excel` will return a dictionary containing DataFrames for all sheets in the file. The default value for `sheet_name` is `0`, meaning the first sheet will be loaded as a DataFrame by default.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "You control which sheet(s) to read via the `sheet_name` argument of `pandas.read_excel`. Pass a string with the sheet name, an integer for the zero‑based position, a list of names/integers to read multiple sheets, or `None` to load every sheet (returned as a dict of DataFrames). If you omit `sheet_name`, it defaults to `0`, meaning the first sheet is read into a single DataFrame.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html"
+    ],
+    "hops": 3,
+    "input_tokens": 4331,
+    "output_tokens": 666,
+    "latency_s": 60.766,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0035",
+    "question": "When indexing a multi-dimensional NumPy array, what is the performance implication of using chained single-dimension indexing like `x[dim1][dim2]` compared to combined indexing like `x[dim1, dim2]`?",
+    "ground_truth": "While `x[dim1, dim2]` is equivalent to `x[dim1][dim2]` in terms of the element returned, the latter is less efficient. This is because `x[dim1][dim2]` first creates a new temporary array after the first index (`x[dim1]`) which is then subsequently indexed by `dim2`.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "Chained indexing (e.g., x[dim1][dim2]) creates an intermediate temporary array after the first indexing step, which adds overhead and can cause an extra copy. Combined indexing (e.g., x[dim1, dim2]) performs the selection in a single operation, avoiding the temporary and therefore runs faster and uses less memory.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/user/basics.indexing.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/user/basics.indexing.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7490,
+    "output_tokens": 653,
+    "latency_s": 1.541,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0036",
+    "question": "Which macros are available in the NumPy C-API to obtain a pointer to the data buffer of a PyArrayObject?",
+    "ground_truth": "To obtain a pointer to the data buffer for a PyArrayObject, the `PyArray_DATA` and `PyArray_BYTES` macros are available. `PyArray_DATA` is intended for assignment to a particular pointer type, while `PyArray_BYTES` is for more generic processing.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The NumPy C‑API provides two macros for getting a pointer to the raw data buffer of a `PyArrayObject`: `void *PyArray_DATA(PyArrayObject *arr)` returns a generic pointer to the buffer, and `char *PyArray_BYTES(PyArrayObject *arr)` returns a byte‑wise pointer (useful for generic processing). Both are defined in `ndarraytypes.h`.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/c-api/index.html",
+      "https://numpy.org/devdocs/reference/c-api/array.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/c-api/array.html"
+    ],
+    "hops": 5,
+    "input_tokens": 15019,
+    "output_tokens": 2166,
+    "latency_s": 61.435,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0037",
+    "question": "How does an `ndarray` arrange its N-dimensional items in computer memory, and what attribute defines the size and interpretation of each item?",
+    "ground_truth": "An `ndarray` consists of a contiguous one-dimensional segment of computer memory combined with an indexing scheme that maps N integers to item locations within this block. While memory is inherently 1-dimensional, NumPy `ndarray` objects can accommodate any strided indexing scheme. The `data-type object (dtype)` associated with the array defines how many bytes each item takes and how those bytes are interpreted.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "An ``ndarray`` stores its N‑dimensional data in a single contiguous one‑dimensional block of computer memory; a stride‑based indexing scheme maps the N index coordinates onto positions within that block. The attribute that determines how each element is sized and interpreted is the array’s ``dtype`` (the data‑type object, which also provides the ``itemsize`` in bytes).",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/arrays.ndarray.html",
+      "https://numpy.org/devdocs/reference/arrays.dtypes.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/arrays.ndarray.html",
+      "https://numpy.org/devdocs/reference/arrays.dtypes.html"
+    ],
+    "hops": 6,
+    "input_tokens": 26955,
+    "output_tokens": 1781,
+    "latency_s": 62.614,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0038",
+    "question": "When using `pandas.DataFrame.to_sql` to write a DataFrame to a SQL database, what are the different options available for the `if_exists` parameter and what behavior does each option trigger?",
+    "ground_truth": "The `if_exists` parameter for `pandas.DataFrame.to_sql` controls how to behave if the target table already exists. The available options are: 'fail', which raises a ValueError; 'replace', which drops the table before inserting new values; 'append', which inserts new values to the existing table; and 'delete_rows', which deletes all records from an existing table before inserting the new data.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The `if_exists` argument accepts four string values:\n- `'fail'` (default): raises a ValueError if the target table already exists.\n- `'replace'`: drops the existing table and creates a new one before inserting the DataFrame rows.\n- `'append'`: keeps the existing table and adds the DataFrame rows to it.\n- `'delete_rows'`: keeps the table schema but deletes all existing rows, then inserts the new data.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_sql.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_sql.html"
+    ],
+    "hops": 2,
+    "input_tokens": 2794,
+    "output_tokens": 458,
+    "latency_s": 0.998,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0039",
+    "question": "When utilizing the `MultiIndex.from_product` method to create a MultiIndex, how are the names for the levels in the index determined if the `names` parameter is not explicitly provided?",
+    "ground_truth": "If the `names` parameter is not explicitly provided, the names for the levels in the index will be inferred from the elements of the `iterables` parameter, specifically if an element itself possesses a 'name' attribute.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "If you call `MultiIndex.from_product` without supplying the `names` argument, pandas will try to infer the level names from the iterables you pass. It looks at each iterable’s `name` attribute (e.g., an Index with a .name) and uses those values as the level names; if an iterable has no name attribute, the corresponding level name will be left as None.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.from_product.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.from_product.html"
+    ],
+    "hops": 2,
+    "input_tokens": 2682,
+    "output_tokens": 530,
+    "latency_s": 61.479,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0040",
+    "question": "When using `pandas.plotting.table`, what type of object is returned by the function?",
+    "ground_truth": "The `pandas.plotting.table` function returns a `matplotlib table object`. This object represents the table that has been created and drawn on the specified Matplotlib axes, allowing for further customization or interaction within the Matplotlib figure.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "pandas.plotting.table returns a Matplotlib Table object.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.table.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.table.html"
+    ],
+    "hops": 4,
+    "input_tokens": 4996,
+    "output_tokens": 588,
+    "latency_s": 2.13,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0041",
+    "question": "After navigating to the NumPy reference documentation, where would you find details regarding specific functions or methods related to array indexing?",
+    "ground_truth": "Upon reaching the NumPy reference manual, information concerning functions and methods for array indexing can be located under the 'Indexing routines' section. This section is explicitly listed within the 'Routines and objects by topic' part of the reference's table of contents.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "In the NumPy reference documentation, details about specific array‑indexing functions and methods are found on the \"Indexing routines\" page (https://numpy.org/devdocs/reference/routines.indexing.html). This page lists all indexing utilities (c_, r_, s_, nonzero, where, indices, ix_, ogrid, etc.) and provides cross‑reference links to the individual generated documentation pages for each function.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.indexing.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/routines.indexing.html"
+    ],
+    "hops": 2,
+    "input_tokens": 4915,
+    "output_tokens": 524,
+    "latency_s": 1.237,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0042",
+    "question": "When `pandas.plotting.deregister_matplotlib_converters()` is called, how does it specifically handle converters for Python's `datetime.datetime` type?",
+    "ground_truth": "When `pandas.plotting.deregister_matplotlib_converters()` is called, it removes pandas formatters and converters. For types that pandas overwrites, such as `datetime.datetime`, their converters are restored to their original values. This means they are not removed completely but rather reverted to their state before pandas registered its own units.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "When `pandas.plotting.deregister_matplotlib_converters()` is invoked, it removes the custom converters that pandas added for its own types and, for types that pandas overwrote—such as Python's `datetime.datetime`—it restores the original matplotlib converter that existed before pandas registered its own.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.deregister_matplotlib_converters.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.deregister_matplotlib_converters.html"
+    ],
+    "hops": 3,
+    "input_tokens": 3768,
+    "output_tokens": 440,
+    "latency_s": 60.629,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0043",
+    "question": "If I want to discuss contributing to NumPy privately on Slack, what is the specific email address I need to write to in order to get an invite?",
+    "ground_truth": "To get a Slack invite for private discussions about contributing to NumPy, you need to write to [email protected]. This is for those who prefer a more private space before engaging on public channels like the mailing list or GitHub.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "To request a private Slack invitation for discussing NumPy contributions, email numpy-dev@python.org. This address is listed in the contribution guide as the point of contact for Slack invites.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/dev/index.html",
+      "https://numpy.org/devdocs/dev/index.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/dev/index.html"
+    ],
+    "hops": 6,
+    "input_tokens": 21764,
+    "output_tokens": 1532,
+    "latency_s": 61.834,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0044",
+    "question": "When using `pandas.interval_range` to generate an `IntervalIndex`, what is the specific rule governing the combination of `start`, `end`, `periods`, and `freq` parameters?",
+    "ground_truth": "When using `pandas.interval_range`, of the four parameters `start`, `end`, `periods`, and `freq`, exactly three must be specified. If `freq` is omitted, the resulting `IntervalIndex` will have linearly spaced elements between `start` and `end`, inclusively.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The rule is that of the four parameters `start`, `end`, `periods`, and `freq`, you must provide exactly three. If you omit `freq`, pandas will create an IntervalIndex with `periods` evenly spaced intervals spanning from `start` to `end` (inclusive).",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.interval_range.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.interval_range.html"
+    ],
+    "hops": 3,
+    "input_tokens": 4237,
+    "output_tokens": 592,
+    "latency_s": 1.478,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0045",
+    "question": "When was the `descending` parameter introduced to the `numpy.argsort` function?",
+    "ground_truth": "The `descending` parameter was added to `numpy.argsort` in NumPy version 2.5.0. This optional boolean parameter dictates the sort order; if True, the array is sorted in descending order, otherwise ascending.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The `descending` parameter was added to `numpy.argsort` in NumPy version 2.5.0.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/generated/numpy.argsort.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.argsort.html"
+    ],
+    "hops": 6,
+    "input_tokens": 17205,
+    "output_tokens": 790,
+    "latency_s": 62.039,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0046",
+    "question": "What is the specific limitation of `DataFrame.pivot()` that makes `pivot_table()` a necessary alternative in pandas?",
+    "ground_truth": "`DataFrame.pivot()` can only handle unique rows as specified by its `index` and `columns` arguments. If your data contains duplicate entries for the chosen `index` and `columns` combinations, `pivot()` will fail. In such scenarios, `pivot_table()` should be used instead, as it can handle duplicates by allowing aggregation of numeric data.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "DataFrame.pivot() cannot handle duplicate index/column combinations; it does not perform any aggregation and will raise a ValueError when multiple values exist for the same pair. Therefore, when you need to aggregate duplicate entries, you must use DataFrame.pivot_table().",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pivot.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pivot.html"
+    ],
+    "hops": 2,
+    "input_tokens": 3068,
+    "output_tokens": 373,
+    "latency_s": 61.537,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0047",
+    "question": "When using `numpy.genfromtxt` to load data from a text file, what is the default data type (`dtype`) of the resulting array if not explicitly specified, and what conditions lead to a structured output array when the `dtype` is inferred?",
+    "ground_truth": "When `numpy.genfromtxt` loads data without an explicitly specified `dtype`, the default data type of the resulting array is `<class 'float'>`. If `dtype` is set to `None`, the data types of each column will be inferred automatically. The output array will be structured only if the inferred data types are not all the same across columns, or if the `names` parameter is not `None`.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "If you call numpy.genfromtxt without specifying dtype, the function uses a default dtype of <class 'float'> (i.e., a NumPy float64). When dtype is set to None (so that NumPy infers the type for each column), the result becomes a structured array only if the inferred dtypes differ between columns or if you provide column names via the 'names' argument.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.io.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.genfromtxt.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.genfromtxt.html"
+    ],
+    "hops": 4,
+    "input_tokens": 12182,
+    "output_tokens": 1011,
+    "latency_s": 2.197,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0048",
+    "question": "When using `numpy.random.RandomState.permutation`, how does the function behave if the input `x` is a multi-dimensional array?",
+    "ground_truth": "If `x` is a multi-dimensional array, `numpy.random.RandomState.permutation` shuffles it only along its first index. The function creates a copy of the input array `x` and then randomizes the order of the elements along this primary dimension.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "If the input `x` is a multi‑dimensional array, `RandomState.permutation` shuffles only along the first axis (the first index), leaving the shape unchanged but permuting the rows (or first‑dimension slices).",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.permutation.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.permutation.html"
+    ],
+    "hops": 6,
+    "input_tokens": 17134,
+    "output_tokens": 710,
+    "latency_s": 62.173,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0049",
+    "question": "What are the four primary types of windowing operations available in pandas, and which method is typically used to initiate each of these operations?",
+    "ground_truth": "Pandas supports four types of windowing operations: Rolling window, initiated by the `.rolling()` method; Weighted window, also initiated by `.rolling()` but for specific non-rectangular windows; Expanding window, initiated by the `.expanding()` method; and Exponentially Weighted window, initiated by the `.ewm()` method.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "Pandas provides four main windowing operation families: Rolling window – started with the DataFrame.rolling() or Series.rolling() method; Weighted window – also started with .rolling() but using the win_type parameter to supply a SciPy window; Expanding window – started with the DataFrame.expanding() or Series.expanding() method; Exponentially Weighted window – started with the DataFrame.ewm() or Series.ewm() method.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rolling.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/window.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/window.html"
+    ],
+    "hops": 4,
+    "input_tokens": 7132,
+    "output_tokens": 1253,
+    "latency_s": 62.605,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0050",
+    "question": "According to the `numpy.strings` documentation, what was the primary module for all string functionality in NumPy prior to version 2.0, and what specific characteristic defined the strings it operated on?",
+    "ground_truth": "Prior to NumPy 2.0, all string functionality was located in the `numpy.char` module. This module exclusively operated on fixed-width strings.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "Before NumPy 2.0 the main module for all string functionality was numpy.char, and it only operated on fixed‑width strings.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.strings.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/routines.strings.html"
+    ],
+    "hops": 2,
+    "input_tokens": 4952,
+    "output_tokens": 293,
+    "latency_s": 0.919,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0051",
+    "question": "What is a key limitation of the `DataFrame.pivot()` method in pandas, and which alternative function should be used if that limitation is encountered?",
+    "ground_truth": "The `DataFrame.pivot()` method can only handle unique rows specified by the `index` and `columns` arguments. If your data contains duplicate entries for the specified `index` and `columns` combinations, you should use `pivot_table()` instead, as it is designed for pivoting with aggregation of numeric data.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The `DataFrame.pivot()` method cannot handle duplicate entries for the same index‑column pair; it raises a ValueError when multiple values exist for a given combination. If you encounter this limitation, use `DataFrame.pivot_table()` instead, which can aggregate duplicate values.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pivot.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pivot.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7358,
+    "output_tokens": 676,
+    "latency_s": 1.497,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0052",
+    "question": "When creating a MultiIndex using `pandas.MultiIndex.from_frame`, how are the level names determined if the `names` parameter is not explicitly provided?",
+    "ground_truth": "If the `names` parameter is not explicitly provided, `pandas.MultiIndex.from_frame` uses the column names of the input DataFrame `df`. In cases where the DataFrame's columns are themselves a MultiIndex, a tuple of column names will be used for the level names.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "If you call pandas.MultiIndex.from_frame without supplying the names argument, the resulting MultiIndex’s level names are taken directly from the DataFrame’s column labels. If the DataFrame’s columns are a simple Index, those column names become the level names; if the columns themselves form a MultiIndex, the tuple of column names is used.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.from_frame.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.from_frame.html"
+    ],
+    "hops": 3,
+    "input_tokens": 3920,
+    "output_tokens": 523,
+    "latency_s": 72.165,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0053",
+    "question": "What is the default behavior of `numpy.savez_compressed` regarding the saving of object arrays using Python pickles, and what are the primary reasons for potentially disallowing this functionality?",
+    "ground_truth": "By default, `numpy.savez_compressed` allows saving object arrays using Python pickles, as its `allow_pickle` parameter is `True`. The primary reasons for disallowing pickles include security concerns, as loading pickled data can execute arbitrary code, and portability issues, where pickled objects might not be loadable on different Python installations or versions.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "By default, `numpy.savez_compressed` sets `allow_pickle=True`, so it will pickle and save object arrays if they are present. The main reasons to turn this off are security – loading pickled data can execute arbitrary code – and portability – pickled objects may depend on unavailable libraries or Python versions, making them unreliable across environments.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.io.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.savez_compressed.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.savez_compressed.html"
+    ],
+    "hops": 4,
+    "input_tokens": 12011,
+    "output_tokens": 556,
+    "latency_s": 1.831,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0054",
+    "question": "NEP 47 discusses the challenges of fragmentation among array libraries and the goal of making code portable. What specific protocol was proposed to allow downstream libraries to return arrays of their own defined types, thereby avoiding forced coercion to pure NumPy arrays?",
+    "ground_truth": "The `__duckarray__` protocol was proposed to allow downstream libraries to return arrays of their defined types. This protocol ensures that instead of coercing array-like objects to pure NumPy arrays, as `np.asarray` would, the NumPy-like array itself is returned. For example, using `np.duckarray(arr).mean()` on a NumPy API compliant object `arr` would return the object directly, avoiding unnecessary copies or conversions.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "NEP 47 proposes the *array function protocol* – implemented via the __array_function__ special method – so that downstream libraries can return their own array types instead of being forced to coerce to pure NumPy arrays.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/dev/depending_on_numpy.html"
+    ],
+    "pages_used": [],
+    "hops": 6,
+    "input_tokens": 17609,
+    "output_tokens": 1837,
+    "latency_s": 134.855,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0055",
+    "question": "In which specific NumPy version was the `numpy.char.chararray` class deprecated?",
+    "ground_truth": "The `numpy.char.chararray` class was deprecated in NumPy 2.5. This submodule is considered legacy, will no longer receive updates, and its string operations are also planned for future deprecation.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The numpy.char.chararray class was deprecated in NumPy version 2.5.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.char.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/routines.char.html"
+    ],
+    "hops": 2,
+    "input_tokens": 4903,
+    "output_tokens": 294,
+    "latency_s": 1.17,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0056",
+    "question": "When creating a pandas SparseArray, what are the different 'kind' options for storing sparse locations, and under what circumstances would you choose 'block' storage over 'integer'?",
+    "ground_truth": "The 'kind' parameter for SparseArray can be 'integer' (default) or 'block'. 'Integer' storage uses an integer to store the location of each sparse value. 'Block' storage stores a block and block_length for each contiguous span of sparse values and is best when sparse data tends to be clumped together, with large regions of fill-value values between sparse values.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "SparseArray supports two storage kinds for the sparse locations: \"integer\" (the default) and \"block\". \"integer\" stores each non‑fill element’s position as a separate integer index, which is efficient when the non‑fill values are few and scattered. \"block\" stores a start position and a length for each contiguous run of non‑fill values, which is preferable when the non‑fill values appear in clusters (large blocks) separated by long stretches of the fill value. Choose \"block\" when your data has many adjacent non‑fill entries, as it reduces the overhead of storing an index for every individual element.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.arrays.SparseArray.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.arrays.SparseArray.html"
+    ],
+    "hops": 3,
+    "input_tokens": 4119,
+    "output_tokens": 654,
+    "latency_s": 1.5,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0057",
+    "question": "What is the purpose and behavior of the `strict` parameter in `numpy.testing.assert_equal`, particularly concerning array comparisons?",
+    "ground_truth": "The `strict` parameter in `numpy.testing.assert_equal`, introduced in version 2.0.0, is an optional boolean flag that, when set to `True`, enforces stricter checks for array comparisons. Specifically, if `actual` and `desired` are arrays, an `AssertionError` will be raised if their shape or data type does not match. This parameter has no effect if neither argument is an array.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The `strict` flag makes `assert_equal` enforce exact shape and dtype matching when at least one of the inputs is a NumPy array. If `strict=True` and the two objects differ in shape or data type, an AssertionError is raised; otherwise (default `strict=False`) the function will treat a scalar and an array as compatible (e.g., a scalar matches every element of an array, and empty arrays are considered equal to scalars). This flag has no effect when both arguments are non‑array objects.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.testing.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_equal.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_equal.html"
+    ],
+    "hops": 3,
+    "input_tokens": 8858,
+    "output_tokens": 553,
+    "latency_s": 61.313,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0058",
+    "question": "When calculating the mean for a pandas DataFrame using `df.mean()`, what is the effect of setting the `axis` parameter to `None`, and in which version was this specific functionality for `axis=None` added?",
+    "ground_truth": "For pandas DataFrames, specifying `axis=None` when calling `df.mean()` will cause the aggregation to be applied across both axes. This particular functionality for the `axis=None` parameter was introduced in version 2.0.0.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "Setting `axis=None` in `df.mean()` makes pandas compute the mean across both rows and columns, returning a single scalar that represents the mean of all values in the DataFrame. This behavior was introduced in pandas version 2.0.0.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mean.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.mean.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7261,
+    "output_tokens": 765,
+    "latency_s": 2.206,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0059",
+    "question": "What parameters does the `pandas.tseries.frequencies.to_offset` function accept, and what type of object does it return?",
+    "ground_truth": "The `pandas.tseries.frequencies.to_offset` function accepts two parameters: `freq`, which can be a string, `datetime.timedelta`, `BaseOffset`, or `None`, representing the frequency; and `is_period`, a boolean (default False) to indicate if a string denoting period frequency should be converted. It returns a `BaseOffset` subclass or `None`.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The `pandas.tseries.frequencies.to_offset` function takes two parameters: `freq`, which can be a string, a `datetime.timedelta`, a `BaseOffset` instance, or `None`, and an optional boolean `is_period` (default False) that, when True, treats the string as a period frequency. It returns a `BaseOffset` subclass object (or `None` if the input is `None`).",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.tseries.frequencies.to_offset.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.tseries.frequencies.to_offset.html"
+    ],
+    "hops": 4,
+    "input_tokens": 4993,
+    "output_tokens": 899,
+    "latency_s": 61.334,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0060",
+    "question": "What are the primary arguments detailed in NEP 32 for deprecating and ultimately removing the financial functions from NumPy?",
+    "ground_truth": "The primary arguments for removing the financial functions from NumPy are that they are too specialized and not useful for \"real world\" financial calculations, as they do not handle actual dates and calendars. Furthermore, the correctness of some functions is a matter of convention, and current NumPy developers lack the background to judge them. Finally, there has been little interest among past and present NumPy developers in maintaining these functions.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "NEP 32 argues that the financial functions belong in a specialized library rather than in NumPy’s core.  The main points are: (1) the functions are rarely used in the NumPy user base, so they add little value; (2) they are poorly maintained, have inconsistent behavior and limited test coverage, which makes them a maintenance burden; (3) there are already mature, better‑documented alternatives (e.g., pandas, SciPy, or dedicated finance packages) that provide the same capabilities; (4) keeping them inflates the NumPy API and documentation without aligning with NumPy’s focus on general‑purpose array operations; and (5) deprecating and eventually removing them follows NumPy’s deprecation policy (NEP 23) to keep the core lean and reliable.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/dev/index.html",
+      "https://numpy.org/neps/nep-0023-backwards-compatibility.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/neps/nep-0023-backwards-compatibility.html"
+    ],
+    "hops": 6,
+    "input_tokens": 19686,
+    "output_tokens": 1475,
+    "latency_s": 61.149,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0061",
+    "question": "When constructing a `pandas.arrays.DatetimeArray`, what specific NumPy `dtype` is the only one allowed for its `dtype` parameter?",
+    "ground_truth": "When constructing a `pandas.arrays.DatetimeArray`, the `dtype` parameter can be a NumPy `dtype` or `DatetimeTZDtype`. The only NumPy `dtype` that is explicitly allowed for this parameter is `'datetime64[ns]'`.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The only NumPy dtype allowed for the `dtype` parameter when constructing a `pandas.arrays.DatetimeArray` is `datetime64[ns]`.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.arrays.SparseArray.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.arrays.DatetimeArray.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.arrays.DatetimeArray.html"
+    ],
+    "hops": 4,
+    "input_tokens": 6279,
+    "output_tokens": 711,
+    "latency_s": 1.759,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0062",
+    "question": "What type of error does `DataFrame.pivot` raise if there are multiple values for a given `index` and `columns` combination, and what is the specific condition that triggers it?",
+    "ground_truth": "`DataFrame.pivot` raises a `ValueError` when there are any `index`, `columns` combinations with multiple values. This is because the function does not support data aggregation, and it cannot resolve multiple values at the intersection of a single index and column without an aggregation strategy.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "DataFrame.pivot raises a ValueError when the data contains duplicate index‑column pairs that map to more than one value. The error is triggered whenever any combination of the specified index and columns appears with multiple values, indicating that aggregation would be required.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pivot.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pivot.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7285,
+    "output_tokens": 611,
+    "latency_s": 60.984,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0063",
+    "question": "What is the nature of NumPy's C-API ABI compatibility, and what are the implications for binaries compiled against different NumPy versions?",
+    "ground_truth": "NumPy's C-API ABI is forward compatible but not backward compatible. This means that binaries compiled against an older version of NumPy will continue to function with newer versions, but binaries compiled against a newer version will not necessarily work with older NumPy installations.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "NumPy’s C‑API is deliberately kept ABI‑compatible across minor releases (e.g., code that compiled against NumPy 1.4 should still compile and run with NumPy 1.7, possibly with compiler warnings). Only a major version bump (such as the move to NumPy 2.0) is allowed to introduce breaking C‑API changes. The deprecation mechanism (NPY_NO_DEPRECATED_API) lets extension authors opt‑in to a specific API version, so they can detect usage of soon‑to‑be‑removed symbols. Consequently, a binary built against an older 1.x NumPy will usually keep working with newer 1.x releases, but it may need recompilation if it relies on APIs that are deprecated and later removed in a major release. Conversely, binaries built against a newer 1.x (or 2.0) that use newer symbols may not run with older NumPy versions because those symbols did not exist there.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/user/c-info.html",
+      "https://numpy.org/devdocs/reference/c-api/deprecations.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/c-api/deprecations.html"
+    ],
+    "hops": 6,
+    "input_tokens": 19373,
+    "output_tokens": 1044,
+    "latency_s": 61.787,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0064",
+    "question": "What is the general behavior of most pandas operations regarding copies, and what is the current discussion concerning the `inplace` and `copy` keyword arguments?",
+    "ground_truth": "Most pandas operations return copies of the Series or DataFrame. To make changes persist, you typically need to assign the result to a new variable or overwrite the original. While `inplace=True` or `copy=False` keyword arguments are available for some methods, there is an active discussion about deprecating and removing them for most methods, as they are expected to become unnecessary with Copy-on-Write.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "In pandas the default for the overwhelming majority of operations is to return a new object (or a view that behaves like a copy) rather than mutating the original data in place – i.e. they work on a copy unless you explicitly request in‑place modification. Because of this, the pandas community is actively discussing the future of the `inplace` flag and the `copy` keyword: `inplace=True` is being discouraged and may be deprecated/removed, while the `copy` argument (which controls whether the input data are copied when constructing a new object) is being clarified and its defaults are being aligned with the copy‑on‑write semantics introduced in recent versions. The goal is to make pandas operations side‑effect‑free by default and to rely on explicit copying rather than hidden in‑place changes.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/copy_on_write.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/gotchas.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/copy_on_write.html"
+    ],
+    "hops": 6,
+    "input_tokens": 39247,
+    "output_tokens": 2045,
+    "latency_s": 123.81,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0065",
+    "question": "What is the internal structure of the state vector used by the `numpy.random.MT19937` BitGenerator?",
+    "ground_truth": "The MT19937 state vector consists of a 624-element array of 32-bit unsigned integers. Additionally, there is a single integer value between 0 and 624 that indexes the current position within this main array. A SeedSequence processes the input seed to fill this entire state.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The MT19937 BitGenerator stores its state as a 624‑element array of 32‑bit unsigned integers together with a single integer index (ranging from 0 to 624) that points to the current position in that array.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/random/bit_generators/mt19937.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/random/bit_generators/mt19937.html"
+    ],
+    "hops": 6,
+    "input_tokens": 15125,
+    "output_tokens": 587,
+    "latency_s": 61.17,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0066",
+    "question": "According to NumPy's documentation on scalars, do `numpy.str_` and `numpy.bytes_` array scalar types inherit from their corresponding built-in Python types (str and bytes), and what is the specific reason `numpy.int_` does not inherit from Python's `int`?",
+    "ground_truth": "`numpy.str_` inherits from Python's `str` and `numpy.bytes_` inherits from Python's `bytes`. `numpy.int_` does not inherit from the built-in Python `int` type because Python's `int` is not a fixed-width integer type, unlike NumPy's `int_`.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "{\"action\": \"answer\", \"answer\": \"According to the NumPy scalar documentation, the array‑scalar types `numpy",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/arrays.scalars.html",
+      "https://numpy.org/devdocs/reference/arrays.scalars.html",
+      "https://numpy.org/devdocs/reference/arrays.dtypes.html"
+    ],
+    "pages_used": [],
+    "hops": 6,
+    "input_tokens": 25066,
+    "output_tokens": 1748,
+    "latency_s": 60.943,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0067",
+    "question": "When using `pandas.DataFrame.combine_first`, if a specific cell has non-null values in *both* the calling DataFrame and the `other` DataFrame, which DataFrame's value will be preserved in the resulting combined DataFrame?",
+    "ground_truth": "When `pandas.DataFrame.combine_first` is called (e.g., `df1.combine_first(df2)`), if a cell `[index, col]` exists and is non-null in both `df1` and `df2`, the value from the calling DataFrame (`df1`) will be preserved. The documentation explicitly states that 'the ‘first’ dataframe values and overrides the second one values where both first.loc[index, col] and second.loc[index, col] are not missing values'.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "When both DataFrames have non‑null values in the same cell, the value from the calling DataFrame (the first DataFrame) is kept in the result; the other DataFrame’s value is ignored.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.combine_first.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.combine_first.html"
+    ],
+    "hops": 3,
+    "input_tokens": 6843,
+    "output_tokens": 647,
+    "latency_s": 1.586,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0068",
+    "question": "What type of data structures does the `resample` API typically operate on in pandas, and how can you use it to convert a time series to a different frequency, providing a concrete example?",
+    "ground_truth": "The `resample` API in pandas primarily operates on time series data, such as a `pd.Series` or `DataFrame` with a `DatetimeIndex`. It is used to convert the time series to a particular frequency. For instance, to convert an hourly time series (`ts`) to a 2-hour frequency and calculate the mean for each new period, one could use `ts.resample(\"2h\").mean()`.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The `resample` API works on pandas objects that have a time‑based index – typically a `Series` or a `DataFrame` whose index is a `DatetimeIndex`, `PeriodIndex` or `TimedeltaIndex` (see the Series description in the Intro to data structures page). By calling `obj.resample('new_freq')` you create a `Resampler` object that you then aggregate (e.g., with `.mean()`, `.sum()`, etc.) to produce data at the new frequency.\\n\\n**Example – converting daily data to monthly frequency**:\\n```python\\nimport pandas as pd\\n# daily time series\\nidx = pd.date_range('2023-01-01', periods=7, freq='D')\\nvalues = [10, 12, 13, 15, 14, 16, 18]\\nds = pd.Series(values, index=idx)\\n# resample to monthly, taking the mean of the days in each month\\nmonthly = ds.resample('M').mean()\\nprint(monthly)\\n```\\nThe output is a monthly `Series` with the average of the daily values for January 2023. This same pattern works for a `DataFrame` with a time‑based index, allowing you to down‑sample or up‑sample any time‑series data.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html"
+    ],
+    "hops": 6,
+    "input_tokens": 27668,
+    "output_tokens": 2614,
+    "latency_s": 152.382,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0069",
+    "question": "What specific aspects of data are described by a `numpy.dtype` object?",
+    "ground_truth": "A `numpy.dtype` object describes how the bytes in an array item's memory block should be interpreted. This includes the type of the data (e.g., integer, float), its size in bytes, the byte order (little-endian or big-endian), and for structured data types, the names, data types, and memory locations of its fields. If the data type is a sub-array, it also describes its shape and data type.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "A `numpy.dtype` object describes how the bytes of an array item are interpreted. It specifies the data type (e.g., integer, float, Python object), the size in bytes, and the byte order (little‑ or big‑endian). For structured dtypes it also records the field names, each field's dtype and its offset within the memory block, and for sub‑array dtypes it records the shape and the element dtype.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/arrays.dtypes.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/arrays.dtypes.html"
+    ],
+    "hops": 2,
+    "input_tokens": 4877,
+    "output_tokens": 382,
+    "latency_s": 2.109,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0070",
+    "question": "What is the primary purpose of `pandas.api.extensions.ExtensionDtype` and how does it enable integration with pandas operations?",
+    "ground_truth": "A `pandas.api.extensions.ExtensionDtype` is a custom data type designed to be paired with an `ExtensionArray`. Its primary purpose is to enable support for third-party and custom data types within the pandas ecosystem. By implementing this interface and pairing it with a custom `ExtensionArray`, users can create rich data types that integrate cleanly with various pandas operations, such as grouping, joining, or aggregation.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The primary purpose of `pandas.api.extensions.ExtensionDtype` is to define a custom data type that can be paired with an `ExtensionArray` so that third‑party or user‑defined types can be recognized by pandas. By implementing the required interface (type name, construct_array_type, and related attributes like `_is_numeric`, `na_value`, etc.) and registering the dtype, pandas treats it like a built‑in dtype, allowing the custom type to participate in standard pandas operations such as grouping, joining, aggregation, indexing, and arithmetic.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.api.extensions.ExtensionDtype.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.api.extensions.ExtensionDtype.html"
+    ],
+    "hops": 3,
+    "input_tokens": 3908,
+    "output_tokens": 447,
+    "latency_s": 3.827,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0071",
+    "question": "What specific exceptions can `pandas.api.indexers.check_array_indexer` raise, and under what general conditions?",
+    "ground_truth": "The `pandas.api.indexers.check_array_indexer` function can raise an `IndexError` when the lengths of the `array` and boolean `indexer` do not match. It can also raise a `ValueError` if the `indexer` cannot be converted to a NumPy `ndarray` for indexing, such as when an integer indexer contains missing values.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "`pandas.api.indexers.check_array_indexer` can raise two specific exceptions:\n- **IndexError** – raised when the provided indexer (e.g., a boolean mask) does not have the same length as the target array, i.e., the lengths don’t match.\n- **ValueError** – raised when the indexer cannot be converted to a NumPy ndarray for indexing, such as when it contains missing values or is of an unsupported dtype.\nThese exceptions cover the general conditions of an invalid length match and an invalid type/value for the indexer.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.api.typing.DataFrameGroupBy.sum.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.api.indexers.check_array_indexer.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.api.indexers.check_array_indexer.html"
+    ],
+    "hops": 5,
+    "input_tokens": 9831,
+    "output_tokens": 1077,
+    "latency_s": 61.76,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0072",
+    "question": "What is the primary purpose of the `assert_allclose` function within NumPy's test support module, and what are its key parameters?",
+    "ground_truth": "The `assert_allclose` function, found in NumPy's test support module, serves to raise an AssertionError if two objects (actual and desired) are not equal up to a specified tolerance. Its key parameters include `actual`, `desired`, `rtol` (relative tolerance), and potentially others for fine-tuning the comparison.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The `assert_allclose` function is a test‑support utility that checks two array‑like objects for equality within a specified tolerance and raises an AssertionError if they differ beyond that tolerance. Its main parameters are `actual` and `desired` (the values to compare), `rtol` (relative tolerance, default 1e‑07), `atol` (absolute tolerance, default 0), `equal_nan` (whether NaNs are considered equal, default True), plus optional `err_msg`, `verbose`, and `strict` (which disables scalar broadcasting and type‑shape mismatches).",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.testing.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_allclose.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_allclose.html"
+    ],
+    "hops": 3,
+    "input_tokens": 8853,
+    "output_tokens": 516,
+    "latency_s": 1.54,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0073",
+    "question": "For `pandas.interval_range`, what is the specific rule regarding the number of `start`, `end`, `periods`, and `freq` parameters that must be specified?",
+    "ground_truth": "For `pandas.interval_range`, exactly three of the four parameters (`start`, `end`, `periods`, and `freq`) must be specified. This is a critical constraint for generating the `IntervalIndex`. If the `freq` parameter is omitted, the resulting `IntervalIndex` will have periods linearly spaced elements between `start` and `end`, inclusively.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "For pandas.interval_range, exactly three of the four parameters start, end, periods, and freq must be provided; the missing one is inferred from the others.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.date_range.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.interval_range.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.interval_range.html"
+    ],
+    "hops": 4,
+    "input_tokens": 7150,
+    "output_tokens": 705,
+    "latency_s": 61.614,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0074",
+    "question": "Which NumPy version removed `numpy.distutils`, and what are the recommended build systems for migration if a package includes compiled code?",
+    "ground_truth": "NumPy 2.5.0 removed `numpy.distutils`. For packages with compiled code, the recommended build systems for migration are Meson, using the `meson-python` build backend, or CMake, using the `scikit-build-core` build backend.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "numpy.distutils was removed in NumPy 2.5.0. For packages that include compiled code, the recommended migration build systems are Meson (using the meson‑python backend) and CMake (using the scikit‑build‑core backend); for simpler cases you can also switch to setuptools.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/distutils_status_migration.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/distutils_status_migration.html"
+    ],
+    "hops": 2,
+    "input_tokens": 4252,
+    "output_tokens": 301,
+    "latency_s": 0.895,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0075",
+    "question": "Prior to the changes proposed in NEP 50, how did NumPy's value-based promotion specifically determine the output type when combining `np.int8` with the Python integer `255` using `np.result_type`?",
+    "ground_truth": "Before the proposed changes in NEP 50, value-based promotion would lead `np.result_type(np.int8, 255)` to return `np.int16`. This behavior was due to the inspection of the value: 255 cannot be represented by an `int8`, thus requiring promotion to a larger type like `int16`.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "Before NEP 50, NumPy inspected the actual value of the Python integer. When calling np.result_type(np.int8, 255) the value 255 cannot be represented by an int8 (‑128 to 127), so NumPy promoted the combination to the smallest signed integer dtype that can hold the value, which is np.int16. This is why np.result_type(np.int8, 255) returned np.int16.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/arrays.promotion.html",
+      "https://numpy.org/neps/nep-0050-scalar-promotion.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/neps/nep-0050-scalar-promotion.html"
+    ],
+    "hops": 4,
+    "input_tokens": 11165,
+    "output_tokens": 1000,
+    "latency_s": 61.426,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0076",
+    "question": "What was the behavioral change introduced in pandas version 3.0.0 regarding the `sort` parameter of `pandas.Series.value_counts`?",
+    "ground_truth": "In pandas version 3.0.0, the `sort` parameter for `Series.value_counts` was changed to provide a stable sort by frequencies when set to `True`. Prior to version 3.0.0, the sort behavior for this method was unstable.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "In pandas 3.0.0 the `sort` parameter of `Series.value_counts` switched to a stable sort. Before 3.0.0 the sorting of counts was unstable, but from 3.0.0 onward it performs a stable sort by frequencies.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.value_counts.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7166,
+    "output_tokens": 550,
+    "latency_s": 1.774,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0077",
+    "question": "When `numpy.ogrid` is indexed with multiple slices, what is the structure of the returned object, and what specific shape characteristic do the individual arrays within that object possess?",
+    "ground_truth": "When `numpy.ogrid` is indexed with multiple slices, it returns a tuple of arrays. A key characteristic of these individual arrays is that only one dimension of each returned array is greater than 1, which distinguishes it as an 'open' mesh-grid.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "When you index `numpy.ogrid` with more than one slice, the result is a tuple (or list‑like container) of ndarrays—one array per slice. Each returned array has the same number of dimensions as there are slices, but only the dimension that corresponds to its own slice is larger than 1; all other dimensions are size 1, making the arrays broadcast‑compatible.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.indexing.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.ogrid.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.ogrid.html"
+    ],
+    "hops": 4,
+    "input_tokens": 12390,
+    "output_tokens": 1395,
+    "latency_s": 61.195,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0078",
+    "question": "For the `pandas.Int64Dtype`, which specific value is utilized to represent missing data, and what alternative value does it explicitly state it uses *instead*?",
+    "ground_truth": "The `pandas.Int64Dtype` uses `pandas.NA` as its missing value. It explicitly states that it uses `pandas.NA` rather than `numpy.nan` for this purpose.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "pandas.Int64Dtype uses pandas.NA to represent missing data, explicitly stating it uses pandas.NA instead of numpy.nan.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Int64Dtype.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Int64Dtype.html"
+    ],
+    "hops": 3,
+    "input_tokens": 3975,
+    "output_tokens": 425,
+    "latency_s": 1.902,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0079",
+    "question": "When implementing the `__array_ufunc__` protocol, what specific requirement is placed on corresponding Python binary operations like `__mul__`?",
+    "ground_truth": "The `__array_ufunc__` protocol requires that any corresponding Python binary operations (e.g., `__mul__` et al.) must be implemented in a specific way. These operations need to be compatible with NumPy's `ndarray` semantics to ensure proper interaction and override behavior.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "When you implement __array_ufunc__, any matching Python binary method (e.g., __mul__) must return NotImplemented for inputs it does not handle. This lets NumPy fall back to the ufunc dispatch via __array_ufunc__ instead of raising an error directly, ensuring the binary operator and the ufunc stay consistent.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/user/basics.ufuncs.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/user/basics.ufuncs.html"
+    ],
+    "hops": 6,
+    "input_tokens": 24883,
+    "output_tokens": 1864,
+    "latency_s": 63.084,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0080",
+    "question": "According to the NumPy documentation, do the `bool_` and `int_` scalar types inherit from their corresponding Python built-in types, `bool` and `int`? Explain the reason for their inheritance status.",
+    "ground_truth": "No, neither NumPy's `bool_` nor `int_` scalar types inherit from their corresponding Python built-in types. The `bool_` type does not inherit from Python's `bool` because Python's `bool` does not allow itself to be inherited from, and their C-level data sizes differ. Similarly, `int_` does not inherit from Python's `int` because the Python `int` type is not a fixed-width integer type.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "No. The NumPy Scalars page shows that both `numpy.bool_` and `numpy.int_` have an \"Inherits?\" entry of **no**, meaning they do **not** inherit from the built‑in Python types `bool` and `int`. The documentation explains that `bool_` cannot inherit because Python’s `bool` type is not subclassable and its C‑level size differs from a NumPy Boolean scalar. Likewise, `int_` is a distinct NumPy integer type that provides its own dtype semantics and size, so it is kept separate from Python’s `int` rather than subclassing it.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/arrays.scalars.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/arrays.scalars.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7814,
+    "output_tokens": 1324,
+    "latency_s": 60.475,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0081",
+    "question": "When using `numpy.testing.assert_array_max_ulp`, what is the default value for its `maxulp` parameter?",
+    "ground_truth": "The `maxulp` parameter in `numpy.testing.assert_array_max_ulp` is an optional integer that specifies the maximum number of units in the last place that elements of two arrays can differ. Its default value is 1.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The default value for the `maxulp` parameter of `numpy.testing.assert_array_max_ulp` is 1.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.testing.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_array_max_ulp.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_array_max_ulp.html"
+    ],
+    "hops": 4,
+    "input_tokens": 11767,
+    "output_tokens": 608,
+    "latency_s": 3.603,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0082",
+    "question": "When converting a pandas DataFrame to a NumPy array using `to_numpy()`, what does setting the `copy` parameter to `True` ensure?",
+    "ground_truth": "Setting the `copy` parameter to `True` for `pandas.DataFrame.to_numpy()` ensures that a copy of the data is made, even if it might not be strictly necessary to create a new array. This means the returned NumPy array will be a distinct object, not a view on another array.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "Setting `copy=True` guarantees that `to_numpy()` will create a new NumPy array that is a copy of the DataFrame's data, ensuring the result is not just a view of the original underlying array.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_numpy.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_numpy.html"
+    ],
+    "hops": 2,
+    "input_tokens": 2661,
+    "output_tokens": 338,
+    "latency_s": 1.363,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0083",
+    "question": "What are the accepted values for the `fill_method` parameter in `pandas.merge_ordered`, and what is its default setting?",
+    "ground_truth": "In `pandas.merge_ordered`, the `fill_method` parameter accepts `'ffill'` or `None` as interpolation methods. Its default setting is `None`.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The `fill_method` parameter accepts either the string `'ffill'` or `None`. Its default value is `None`.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.merge_ordered.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.merge_ordered.html"
+    ],
+    "hops": 3,
+    "input_tokens": 4087,
+    "output_tokens": 423,
+    "latency_s": 74.411,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0084",
+    "question": "What specific Python exception is raised by `DataFrame.loc` when accessed items are not found, and which exception does `DataFrame.iloc` typically raise for out-of-bounds indexers?",
+    "ground_truth": "When items are not found, `DataFrame.loc` raises a `KeyError`. For `DataFrame.iloc`, an `IndexError` is typically raised if a requested indexer is out-of-bounds, with the exception of slice indexers which permit out-of-bounds indexing.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "DataFrame.loc raises a KeyError when the requested label(s) are not found. DataFrame.iloc raises an IndexError for out‑of‑bounds integer position indexers.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html"
+    ],
+    "hops": 3,
+    "input_tokens": 6235,
+    "output_tokens": 625,
+    "latency_s": 9.666,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0085",
+    "question": "In the context of pandas' reshaping capabilities, what specific type of conversion do `get_dummies()` and `from_dummies()` collectively represent when dealing with indicator variables?",
+    "ground_truth": "In pandas, both `get_dummies()` and `from_dummies()` are categorized together as 'Conversions with indicator variables'. These functions are discussed within the 'Reshaping and pivot tables' user guide, where they facilitate altering data representation for further processing or summarization.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "API error: Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.get_dummies.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.from_dummies.html"
+    ],
+    "pages_used": [],
+    "hops": 2,
+    "input_tokens": 2995,
+    "output_tokens": 1024,
+    "latency_s": 81.589,
+    "cost_usd": 0.0,
+    "error": "Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}"
+  },
+  {
+    "id": "q0086",
+    "question": "What is the name of the reverse version method for `pandas.DataFrame.sub`?",
+    "ground_truth": "The reverse version of the `pandas.DataFrame.sub` method is `rsub`.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "API error: Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}",
+    "pages_visited": [],
+    "pages_used": [],
+    "hops": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "latency_s": 21.007,
+    "cost_usd": 0.0,
+    "error": "Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}"
+  },
+  {
+    "id": "q0087",
+    "question": "Under what specific condition does the Weibull distribution reduce to the exponential distribution?",
+    "ground_truth": "According to the Notes section on the Weibull distribution page, the Weibull distribution reduces to the exponential distribution when its shape parameter 'a' is equal to 1. This is a special case where the distribution's properties align with the exponential distribution.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The Weibull distribution reduces to the exponential distribution when its shape parameter a equals 1 (a = 1).",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.weibull.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.weibull.html"
+    ],
+    "hops": 6,
+    "input_tokens": 17406,
+    "output_tokens": 971,
+    "latency_s": 61.979,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0088",
+    "question": "According to the definition of NumPy's scope, what type of specialized hardware is explicitly *not* supported for N-dimensional array computation?",
+    "ground_truth": "The 'Scope of NumPy' documentation clarifies that specialized hardware such as GPUs are explicitly not supported for N-dimensional array computation. However, it notes that support for a wide range of CPUs, including ARM and PowerX, is maintained within NumPy's scope.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "NumPy’s scope is limited to CPU‑based computation; it explicitly does not support specialized hardware such as GPUs for N‑dimensional array computation.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/module_structure.html",
+      "https://numpy.org/devdocs/building/cpu_simd.html",
+      "https://numpy.org/devdocs/building/index.html",
+      "https://numpy.org/devdocs/reference/index.html",
+      "https://numpy.org/devdocs/reference/module_structure.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/building/cpu_simd.html"
+    ],
+    "hops": 6,
+    "input_tokens": 27682,
+    "output_tokens": 2357,
+    "latency_s": 62.997,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0089",
+    "question": "According to NEP 38, what is the proposed mechanism for Universal Intrinsics to enable NumPy to utilize advanced CPU features across different architectures?",
+    "ground_truth": "NEP 38 proposes establishing a set of well-defined, architecture-agnostic universal intrinsics. These intrinsics are captured in C macros to build alternative code paths for various CPU feature sets. At runtime, the system discovers available CPU features and chooses the most suitable compiled code path, allowing NumPy to leverage advanced features without needing to recompile for every specific architecture.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "NEP 38 proposes adding a lightweight “universal intrinsics” abstraction layer to NumPy’s core.  The layer defines a small set of generic SIMD‑style operations (load, store, arithmetic, reductions, etc.) that are implemented separately for each architecture (AVX‑512, AVX2, NEON, SVE, etc.).  At runtime NumPy detects the CPU’s capabilities and dispatches to the appropriate implementation via a dispatch table, falling back to a generic version when no specialized code exists.  This mechanism lets NumPy exploit advanced CPU features without scattering architecture‑specific code throughout the library.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/dev/index.html",
+      "https://numpy.org/neps/nep-0023-backwards-compatibility.html",
+      "https://numpy.org/neps/nep-0023-backwards-compatibility.html"
+    ],
+    "pages_used": [],
+    "hops": 6,
+    "input_tokens": 24167,
+    "output_tokens": 1306,
+    "latency_s": 105.083,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0090",
+    "question": "When using `Series.str.get_dummies`, what is the default string used to split the elements?",
+    "ground_truth": "When using `Series.str.get_dummies`, the default string used to split the elements is `|`. This is specified by the `sep` parameter, which has a default value of \"|\".",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The default separator string for Series.str.get_dummies is the pipe character \"|\".",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.get_dummies.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.get_dummies.html"
+    ],
+    "hops": 3,
+    "input_tokens": 6716,
+    "output_tokens": 506,
+    "latency_s": 62.438,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0091",
+    "question": "When performing Kleene logical operations with Pandas' Nullable Boolean data type, what is the outcome of the expression `True & NA`, and why is that the case?",
+    "ground_truth": "In Kleene logical operations, the expression `True & NA` results in `NA`. This outcome occurs because the result cannot be determined solely based on the other input; `True & True` yields `True`, while `True & False` yields `False`. Thus, without knowing the underlying value of `NA`, the specific output cannot be resolved.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The expression `True & NA` evaluates to `<NA>` (the pandas missing value). In Pandas' nullable Boolean dtype the logical operators follow Kleene three‑valued logic, so an unknown value (NA) propagates through an AND operation, yielding NA unless the other operand forces a definite result.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.NA.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.NA.html"
+    ],
+    "hops": 3,
+    "input_tokens": 4234,
+    "output_tokens": 1256,
+    "latency_s": 12.066,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0092",
+    "question": "For what specific data types or structural comparisons should a developer prefer using `numpy.testing.assert_equal` instead of `numpy.testing.assert_array_equal`?",
+    "ground_truth": "`assert_equal` should be preferred when comparing common Python types, especially nested Python lists, as it defines special comparison rules for them. In contrast, `assert_array_equal` typically performs `np.asanyarray` on inputs before comparison, which might not be the desired behavior for complex Python structures. The documentation advises considering `assert_equal` in new code, explicitly converting inputs to arrays only if `assert_array_equal`'s specific behavior is required.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "Prefer `numpy.testing.assert_equal` when the objects being compared are not plain ndarrays or when you need a deep equality check that respects Python container types. It can compare scalars, Python sequences (lists, tuples), nested lists, dictionaries, and structured/record arrays (including field names and dtypes), and it has special handling for NaN positions and scalar‑array broadcasting. `assert_array_equal` is essentially a thin wrapper around `assert_equal` for ndarray‑to‑ndarray cases and does not support nested Python containers or dictionary comparisons, so for those data types and structural comparisons you should use `assert_equal`.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/testing.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_equal.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_array_equal.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_equal.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_array_equal.html"
+    ],
+    "hops": 4,
+    "input_tokens": 12551,
+    "output_tokens": 1040,
+    "latency_s": 62.968,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0093",
+    "question": "When creating a `pandas.CategoricalDtype` object to define a type for categorical data, what are the primary parameters that can be specified, and what is its key advantage for handling categorical variables?",
+    "ground_truth": "The `pandas.CategoricalDtype` accepts two primary parameters: `categories` (a sequence of unique, non-null values) and `ordered` (a boolean or None, defaulting to False). This dtype is particularly useful for handling categorical variables efficiently, as it can significantly reduce memory usage compared to using object dtypes.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "When constructing a pandas.CategoricalDtype you can specify two main parameters: *categories* – a sequence of the allowed category values (must be unique and non‑null) and *ordered* – a boolean (or None) indicating whether the categories have an intrinsic order (default False). Its key advantage is that it provides a dedicated dtype for categorical data, letting pandas store the data more efficiently (often dramatically reducing memory usage) and enabling ordered operations when needed.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.CategoricalDtype.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.CategoricalDtype.html"
+    ],
+    "hops": 3,
+    "input_tokens": 3962,
+    "output_tokens": 546,
+    "latency_s": 1.446,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0094",
+    "question": "What are the primary user-facing motivations and challenges that the Python API cleanup for NumPy 2.0, as outlined in NEP 52, aims to address?",
+    "ground_truth": "The Python API cleanup for NumPy 2.0 is motivated by several challenges users face, primarily due to NumPy's large and organically evolved API. Users find it difficult to disambiguate between similarly named functions and encounter challenges with tab completion in IDEs or notebooks. For example, typing `np.<TAB>` might show a confusing mix of ufuncs, aliases, and functions not intended for end-users. These issues contribute to a steeper learning curve for NumPy users.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "NEP 52 explains that the Python‑API cleanup for NumPy 2.0 is driven by three main user‑facing motivations: (1) to make the public API easier to discover and understand by removing long‑standing legacy functions, aliases, and inconsistent naming; (2) to provide clearer, more consistent error messages and documentation so new users can learn NumPy without being tripped by obscure edge‑case behaviours; and (3) to enable better static analysis and type‑checking (e.g., richer type hints) which helps both users and downstream projects write safer code.  The challenges stem from NumPy’s huge installed base: many existing scripts rely on the legacy symbols, so the cleanup must be staged with deprecation warnings and a well‑defined migration path; the changes must avoid breaking downstream packages that import the old names; and the developers need to update documentation, tests, and the C‑API bindings while preserving performance and correctness across all supported platforms.",
+    "pages_visited": [
+      "https://numpy.org/neps/nep-0023-backwards-compatibility.html",
+      "https://numpy.org/neps/nep-0023-backwards-compatibility.html",
+      "https://numpy.org/neps/nep-0023-backwards-compatibility.html"
+    ],
+    "pages_used": [],
+    "hops": 6,
+    "input_tokens": 21438,
+    "output_tokens": 1812,
+    "latency_s": 73.99,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0095",
+    "question": "When using the `pandas.Series.align` method, what is the data type of the first object returned in the output tuple?",
+    "ground_truth": "The `pandas.Series.align` method returns a tuple where the first object is a `Series`.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The first element returned by pandas.Series.align is a pandas Series (the aligned version of the original Series).",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.align.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.align.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7184,
+    "output_tokens": 484,
+    "latency_s": 62.611,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0096",
+    "question": "According to the `numpy.lib.NumpyVersion` class documentation, what are the distinct categories of version strings that NumPy uses in its versioning scheme, and what are some examples of these string formats?",
+    "ground_truth": "The `numpy.lib.NumpyVersion` class parses and compares various types of NumPy version strings. These categories include released versions (e.g., '1.8.0'), pre-release versions such as alpha ('1.8.0a1'), beta ('1.8.0b1'), and release candidates ('1.8.0rc1'). It also handles different development versions, which can include a git commit hash (e.g., '1.8.0.dev-f1234afa'), be development versions after a pre-release (e.g., '1.8.0a1.dev-f1234afa'), or lack a git hash ('1.8.0.dev-Unknown').",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "NumPy’s version strings fall into several distinct categories:\n\n1. **Released versions** – final releases such as `1.8.0`, `1.8.1`.\n2. **Alpha releases** – pre‑release alphas like `1.8.0a1`, `1.8.0a2`.\n3. **Beta releases** – pre‑release betas such as `1.8.0b1`, `1.8.0b2`.\n4. **Release candidates** – RC versions like `1.8.0rc1`, `1.8.0rc2`.\n5. **Development versions** – builds from the source tree, e.g., `1.8.0.dev-f1234afa` (git hash appended).\n6. **Development versions after a pre‑release** – e.g., `1.8.0a1.dev-f1234afa`, `1.8.0b2.dev-f1234afa`, `1.8.1rc1.dev-f1234afa`.\n7. **Development versions without a git hash** – shown as `1.8.0.dev-Unknown`.\n\nThese categories cover all the version string formats described in the `numpy.lib.NumpyVersion` documentation.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/generated/numpy.lib.NumpyVersion.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.lib.NumpyVersion.html"
+    ],
+    "hops": 4,
+    "input_tokens": 10592,
+    "output_tokens": 653,
+    "latency_s": 74.334,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0097",
+    "question": "When using `pandas.to_datetime` with a DataFrame as input, what are the minimally required columns, and what is the specific format requirement for the 'year' column?",
+    "ground_truth": "If a DataFrame is provided as input to `pandas.to_datetime`, it minimally expects the columns 'year', 'month', and 'day'. Specifically, the 'year' column must be specified in a 4-digit format.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "When a DataFrame is passed to pandas.to_datetime, it must contain at least the columns \"year\", \"month\", and \"day\". The \"year\" column must be in a four‑digit format (e.g., 2023).",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html"
+    ],
+    "hops": 3,
+    "input_tokens": 4384,
+    "output_tokens": 441,
+    "latency_s": 2.636,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0098",
+    "question": "The documentation mentions that `numpy.random.RandomState` provides access to legacy generators. What is the current status of `RandomState` regarding updates and algorithmic improvements, and what is the recommended approach for new random number generation?",
+    "ground_truth": "The `numpy.random.RandomState` class is considered frozen and will have no further improvements, with algorithmic enhancements reserved for the `Generator` container. It is guaranteed to produce the same values as NumPy v1.16. For new random number generation, it is recommended to use a different `BitGenerator` with the `Generator` container instead of `RandomState`.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "`numpy.random.RandomState` is a legacy, frozen API – it will not receive any algorithmic improvements or new features (aside from critical bug fixes) and is kept only for reproducibility with older NumPy releases. For all new code you should use the modern `Generator` interface (e.g., `numpy.random.default_rng()`), which works with the newer BitGenerators and receives ongoing enhancements.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/random/legacy.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/random/legacy.html"
+    ],
+    "hops": 5,
+    "input_tokens": 13683,
+    "output_tokens": 1434,
+    "latency_s": 83.986,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0099",
+    "question": "According to the recommended NumPy development workflow, what is the basic Git workflow for contributors once they have finished making edits and before creating a pull request?",
+    "ground_truth": "Once a contributor has finished making edits, the recommended basic Git workflow is to push their feature branch to their own GitHub repository. After pushing the branch, the next step is to create a pull request to submit the changes for review.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "When you have finished editing, the recommended workflow is to check the changes (git status, optionally git diff), stage the relevant files (git add), commit them (git commit), and then push the feature branch to your fork with git push origin <branch>. After pushing, you create a pull request from that branch to the upstream repository. This sequence keeps the work organized and the history clear.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/dev/development_workflow.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/dev/development_workflow.html"
+    ],
+    "hops": 2,
+    "input_tokens": 4210,
+    "output_tokens": 387,
+    "latency_s": 102.796,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0100",
+    "question": "When `pandas.plotting.deregister_matplotlib_converters()` is called, what is the specific difference in how converters for pandas' own types (like `pd.Timestamp`) are handled compared to converters for types pandas originally overwrites (like `datetime.datetime`)?",
+    "ground_truth": "When `pandas.plotting.deregister_matplotlib_converters()` is invoked, converters for pandas’ own types such as `pd.Timestamp` and `pd.Period` are completely removed from the matplotlib registry. Conversely, converters for types that pandas overwrites, like `datetime.datetime`, are restored to their original values, aiming to revert the registry to its state before pandas' custom units were registered.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "When deregister_matplotlib_converters() runs, it completely removes the custom converters that pandas added for its own types (e.g., pd.Timestamp, pd.Period). In contrast, for types that pandas had overwritten in the matplotlib registry (e.g., datetime.datetime), the function restores the original matplotlib converters rather than removing them.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.register_matplotlib_converters.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.deregister_matplotlib_converters.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.deregister_matplotlib_converters.html"
+    ],
+    "hops": 4,
+    "input_tokens": 5856,
+    "output_tokens": 562,
+    "latency_s": 5.863,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0101",
+    "question": "When using `pandas.to_datetime`, what specific string values can be passed to the `format` parameter, beyond standard `strftime` codes, and what do they imply?",
+    "ground_truth": "For the `format` parameter in `pandas.to_datetime`, you can pass \"ISO8601\" to parse any ISO8601 time string, without requiring an exact format match. Another special value is \"mixed\", which instructs the function to infer the format for each element individually. It's noted that \"mixed\" is risky and should probably be used along with `dayfirst`.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "Beyond the usual strftime patterns, the `format` argument accepts two special string values: \"ISO8601\" – which tells pandas to parse any ISO‑8601‑compatible timestamp (allowing variations in separators, timezone offsets, etc.) and \"mixed\" – which makes pandas infer the format separately for each element, a slower and riskier approach that is often combined with `dayfirst` to resolve ambiguous dates.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html"
+    ],
+    "hops": 2,
+    "input_tokens": 3126,
+    "output_tokens": 513,
+    "latency_s": 61.79,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0102",
+    "question": "According to NEP 0, what are the distinct categories of NumPy Enhancement Proposals (NEPs), and what is the primary purpose or scope of each?",
+    "ground_truth": "According to NEP 0, there are three types of NEPs: Standards Track, Informational, and Process. A Standards Track NEP describes a new feature or implementation for NumPy. An Informational NEP provides general guidelines or information without proposing a new feature. A Process NEP describes or proposes changes to processes surrounding NumPy, applying to areas other than the language itself.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "NEP 0 defines three NEP categories. **Standards‑Track** NEPs propose changes that affect NumPy’s core – new features, API modifications, or behavior changes. **Informational** NEPs provide background, design discussions, guidelines, or other documentation that helps the community but does not alter the code base. **Process** NEPs address how the project is run – governance, deprecation policies, release procedures, and other procedural matters.",
+    "pages_visited": [
+      "https://www.numpy.org/devdocs/dev/governance/governance.html"
+    ],
+    "pages_used": [],
+    "hops": 6,
+    "input_tokens": 17969,
+    "output_tokens": 1735,
+    "latency_s": 118.427,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0103",
+    "question": "What are the default values for the relative tolerance (`rtol`) and absolute tolerance (`atol`) parameters when using `numpy.testing.assert_allclose`?",
+    "ground_truth": "For `numpy.testing.assert_allclose`, the `rtol` (relative tolerance) parameter defaults to `1e-07`. The `atol` (absolute tolerance) parameter has a default value of `0`. These parameters determine the precision required for two objects to be considered equal.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The default relative tolerance (rtol) is 1e‑07 and the default absolute tolerance (atol) is 0 for numpy.testing.assert_allclose.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.testing.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_allclose.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_allclose.html"
+    ],
+    "hops": 4,
+    "input_tokens": 12187,
+    "output_tokens": 647,
+    "latency_s": 82.403,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0104",
+    "question": "Regarding the NumPy roadmap's goal of improving interoperability, what specific development in NumPy 2.0 marked a significant step forward, and what is its related NEP?",
+    "ground_truth": "A large step forward in improving interoperability was made in NumPy 2.0 with the adoption of and compliance with the array API standard (v2022.12). This development aims to make it easier for code written for NumPy to also work with other NumPy-like projects, enabling GPU support via tools like CuPy, JAX, or PyTorch, and distributed array support via Dask. This initiative is directly related to NEP 47 — Adopting the array API standard.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "In NumPy 2.0 the project added native DLPack support – the new numpy.from_dlpack function that lets NumPy arrays share memory with other libraries (e.g., PyTorch, CuPy) without copying. This development fulfills the roadmap’s interoperability goal and is described in NEP 41 (the DLPack interoperability proposal).",
+    "pages_visited": [
+      "https://numpy.org/devdocs/dev/index.html",
+      "https://numpy.org/devdocs/user/basics.interoperability.html"
+    ],
+    "pages_used": [],
+    "hops": 6,
+    "input_tokens": 21991,
+    "output_tokens": 2011,
+    "latency_s": 73.911,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0105",
+    "question": "According to the NumPy documentation, what are the six general mechanisms for creating arrays?",
+    "ground_truth": "NumPy outlines six general mechanisms for array creation. These include converting from other Python structures like lists and tuples, using intrinsic NumPy array creation functions, replicating or joining existing arrays, reading arrays from disk, creating arrays from raw bytes, and utilizing special library functions such as `random`.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The NumPy docs list six general ways to create arrays: (1) converting other Python structures such as lists or tuples; (2) using intrinsic NumPy creation functions like arange, ones, zeros, etc.; (3) replicating, joining, or mutating existing arrays; (4) reading arrays from disk in standard or custom formats; (5) creating arrays from raw bytes via strings or buffers; and (6) using special library functions such as the random module.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.array-creation.html",
+      "https://numpy.org/devdocs/user/basics.creation.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/user/basics.creation.html"
+    ],
+    "hops": 3,
+    "input_tokens": 9248,
+    "output_tokens": 551,
+    "latency_s": 81.734,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0106",
+    "question": "What is the primary reason why the NumPy `bool_` scalar type does not inherit from Python's built-in `bool` type?",
+    "ground_truth": "The NumPy `bool_` data type does not inherit from Python's `bool` because Python’s `bool` itself does not allow inheritance. Additionally, at the C-level, the memory size of the actual `bool` data in NumPy is not the same as a standard Python Boolean scalar.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "NumPy’s `bool_` scalar is deliberately not a subclass of Python’s built‑in `bool` because the built‑in `bool` type is not designed to be inherited from, and at the C level the storage size of a NumPy boolean differs from that of a Python Boolean object. This design avoids incompatibilities and ensures that NumPy booleans behave correctly within the NumPy type system.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/arrays.scalars.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/arrays.scalars.html"
+    ],
+    "hops": 2,
+    "input_tokens": 4884,
+    "output_tokens": 323,
+    "latency_s": 11.332,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0107",
+    "question": "What are the accepted string values for the 'engine' parameter when using `pandas.read_csv()`?",
+    "ground_truth": "When using `pandas.read_csv()`, the 'engine' parameter accepts the string values 'c', 'python', or 'pyarrow'. It is an optional parameter.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The `engine` argument of `pandas.read_csv()` accepts the string identifiers `'c'` for the fast C parser and `'python'` for the pure‑Python parser (or `None` to let pandas choose). These are the only supported string values.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"
+    ],
+    "hops": 4,
+    "input_tokens": 11345,
+    "output_tokens": 778,
+    "latency_s": 2.999,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0108",
+    "question": "When using `numpy.random.shuffle`, how does it modify a multi-dimensional array, specifically regarding the order of sub-arrays and their contents?",
+    "ground_truth": "When `numpy.random.shuffle` is used on a multi-dimensional array, it only shuffles the array along its first axis. The function modifies the array in-place, changing the order of the sub-arrays. However, the contents within those sub-arrays themselves remain unchanged, as only their positions are altered.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "numpy.random.shuffle (or RandomState.shuffle) shuffles a multi‑dimensional array only along its first axis. It reorders the top‑level sub‑arrays (e.g., rows) while leaving each sub‑array's internal contents unchanged.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.shuffle.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.shuffle.html"
+    ],
+    "hops": 6,
+    "input_tokens": 16945,
+    "output_tokens": 860,
+    "latency_s": 63.319,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0109",
+    "question": "In the pandas user guide, under what overarching category of data manipulation, alongside functions like `pivot()` and `melt()`, is `pandas.factorize` discussed?",
+    "ground_truth": "`pandas.factorize` is discussed under the overarching category of 'Reshaping and pivot tables' in the user guide. These methods are used for manipulating Series and DataFrames to alter the representation of data for further processing or summarization.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "`pandas.factorize` is covered in the pandas user guide under the \"Reshaping and pivot tables\" (Reshaping) section, the same category that includes functions like `pivot()` and `melt()`.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.factorize.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html"
+    ],
+    "hops": 3,
+    "input_tokens": 6592,
+    "output_tokens": 751,
+    "latency_s": 62.045,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0110",
+    "question": "What are the accepted string values for the `closed` parameter when constructing a `pandas.IntervalIndex`, and what is its default setting?",
+    "ground_truth": "When constructing a `pandas.IntervalIndex`, the `closed` parameter accepts the string values 'left', 'right', 'both', or 'neither'. Its default setting is 'right'.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "API error: Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}",
+    "pages_visited": [],
+    "pages_used": [],
+    "hops": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "latency_s": 21.056,
+    "cost_usd": 0.0,
+    "error": "Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}"
+  },
+  {
+    "id": "q0111",
+    "question": "When creating a NumPy array using `numpy.array`, what is the purpose of the `ndmin` parameter, and what is its default value?",
+    "ground_truth": "The `ndmin` parameter specifies the minimum number of dimensions that the resulting array should have. If the created array has fewer dimensions than `ndmin`, ones will be prepended to the shape as needed to meet this requirement. Its default value is `0`.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The `ndmin` argument sets the minimum number of dimensions for the array created by `numpy.array`. If the resulting array has fewer dimensions than `ndmin`, leading dimensions of size 1 are added (i.e., ones are prepended to the shape) until the requirement is met. Its default value is 0, meaning no extra dimensions are added unless explicitly requested.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.array-creation.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.array.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.array.html"
+    ],
+    "hops": 3,
+    "input_tokens": 8976,
+    "output_tokens": 442,
+    "latency_s": 2.242,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0112",
+    "question": "What are the constructor parameters for `pandas.CategoricalDtype` and what are their default values?",
+    "ground_truth": "The `pandas.CategoricalDtype` constructor accepts two parameters: `categories` and `ordered`. The `categories` parameter is a sequence and is optional, defaulting to `None`. The `ordered` parameter is a boolean, defaulting to `False`.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The pandas.CategoricalDtype constructor takes two parameters: `categories`, which defaults to None, and `ordered`, which defaults to False (it can also be None to preserve ordering in certain operations).",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.CategoricalDtype.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.CategoricalDtype.html"
+    ],
+    "hops": 2,
+    "input_tokens": 2661,
+    "output_tokens": 319,
+    "latency_s": 60.388,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0113",
+    "question": "What is the primary purpose of the `pandas.plotting.lag_plot` function and how does it visualize temporal dependence?",
+    "ground_truth": "`pandas.plotting.lag_plot` is used for creating a lag plot for time series data. It visualizes the temporal dependence between observations by plotting the values at time t on the x-axis against the values at time t + lag on the y-axis, essentially showing a time series against a lagged version of itself.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The primary purpose of `pandas.plotting.lag_plot` is to provide a quick visual check of temporal dependence in a time‑series. It creates a scatter plot that pairs each observation at time t with the observation at time t + lag (default lag = 1), so the x‑axis shows the original series values and the y‑axis shows the lagged values, revealing patterns such as autocorrelation or randomness.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.lag_plot.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.lag_plot.html"
+    ],
+    "hops": 3,
+    "input_tokens": 3701,
+    "output_tokens": 496,
+    "latency_s": 3.239,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0114",
+    "question": "What types of labels are permissible for the index (row labels) of a pandas DataFrame?",
+    "ground_truth": "The index of a DataFrame is a series of labels that identify each row. These labels can be integers, strings, or any other hashable type. They are used for label-based access and alignment.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The index (row labels) of a pandas DataFrame can be any hashable type, such as integers, strings, or other hashable objects.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.index.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.index.html"
+    ],
+    "hops": 2,
+    "input_tokens": 2584,
+    "output_tokens": 247,
+    "latency_s": 0.924,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0115",
+    "question": "What is the full method signature of `pandas.DataFrame.get`, including its parameters and their default values?",
+    "ground_truth": "The full method signature for `pandas.DataFrame.get` is `DataFrame.get(key, default=None)`. It accepts a `key` parameter, which specifies the key for the item to be returned. Additionally, it has an optional `default` parameter, which defines the value to return if the key is not found. By default, the `default` parameter is set to `None`.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The full method signature is `pandas.DataFrame.get(key, default=None)`, where `key` is the item to retrieve and `default` defaults to `None` if the key is not found.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.get.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.get.html"
+    ],
+    "hops": 3,
+    "input_tokens": 6851,
+    "output_tokens": 498,
+    "latency_s": 60.489,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0116",
+    "question": "What fundamental aspects of data interpretation does a `numpy.dtype` object describe for an array item's memory block?",
+    "ground_truth": "A `numpy.dtype` object describes how the bytes in a fixed-size memory block corresponding to an array item should be interpreted. It specifies the data type (e.g., integer, float), the size of the data in bytes, and its byte order (little-endian or big-endian). For structured data types, it details the names, data-types, and memory locations of its fields. Additionally, if the data type is a sub-array, it describes its shape and data type.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "A `numpy.dtype` object describes how the bytes in an array item's fixed‑size memory block should be interpreted. Fundamentally it specifies the type of the data (e.g., integer, float, object), the size of the data in bytes, and the byte order (little‑ or big‑endian). For structured or sub‑array dtypes it also records field names, field dtypes, and sub‑array shape, but the core interpretation is type, size, and byte order.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/arrays.dtypes.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/arrays.dtypes.html"
+    ],
+    "hops": 2,
+    "input_tokens": 4893,
+    "output_tokens": 410,
+    "latency_s": 1.245,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0117",
+    "question": "What primary statistics does the `pandas.plotting.bootstrap_plot` function generate plots for, and what type of object does this function ultimately return?",
+    "ground_truth": "The `pandas.plotting.bootstrap_plot` function generates bootstrapping plots for mean, median, and mid-range statistics. It returns a `matplotlib.figure.Figure` object, which can be used for further manipulation or display.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The `pandas.plotting.bootstrap_plot` function creates bootstrapping plots for three primary statistics: the mean, the median, and the mid‑range. It returns a Matplotlib Figure object (`matplotlib.figure.Figure`).",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.bootstrap_plot.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.bootstrap_plot.html"
+    ],
+    "hops": 4,
+    "input_tokens": 5010,
+    "output_tokens": 664,
+    "latency_s": 1.942,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0118",
+    "question": "According to the documentation, what data types are currently supported by pandas windowing operations, and what is the typical return dtype for these operations?",
+    "ground_truth": "Pandas windowing operations currently only support numeric data (integer and float). The operations will always return float64 values.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "{\"action\": \"descend\", \"path\": \"window\", \"reason",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.api.typing.DataFrameGroupBy.sum.html"
+    ],
+    "pages_used": [],
+    "hops": 6,
+    "input_tokens": 11602,
+    "output_tokens": 2116,
+    "latency_s": 64.042,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0119",
+    "question": "What is the recommended time frame for merging a straightforward pull request compared to one that changes public API in NumPy?",
+    "ground_truth": "If a pull request (PR) is straightforward, such as a clear bug fix, it can be merged immediately. However, if a PR is more complex or introduces changes to the public API, it should be left open for at least a couple of days to allow other maintainers an opportunity to review it.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "{\"action\": \"answer\", \"answer\": \"NumPy’s reviewer guidelines suggest that a straightforward pull request – such as a small bug fix or documentation edit – should be merged within a few days (typically 2–3 business days). In contrast, a pull request that modifies the public API is given a longer review window, usually up to a week (or slightly longer) to allow for thorough discussion, testing, and any needed deprecation planning.\", \"pages_used\": [\"https://numpy.org/devdocs/dev/reviewer_guid",
+    "pages_visited": [
+      "https://numpy.org/devdocs/dev/reviewer_guidelines.html",
+      "https://numpy.org/devdocs/dev/reviewer_guidelines.html",
+      "https://numpy.org/devdocs/dev/reviewer_guidelines.html",
+      "https://numpy.org/devdocs/dev/reviewer_guidelines.html",
+      "https://numpy.org/devdocs/dev/development_workflow.html"
+    ],
+    "pages_used": [],
+    "hops": 6,
+    "input_tokens": 22219,
+    "output_tokens": 1299,
+    "latency_s": 89.59,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0120",
+    "question": "When writing a DataFrame to a CSV file using `pandas.DataFrame.to_csv`, what are the possible values for the `mode` parameter and what do they signify regarding file handling?",
+    "ground_truth": "The `mode` parameter in `pandas.DataFrame.to_csv` can be set to `'w'` to truncate the file first, `'x'` for exclusive creation (failing if the file already exists), or `'a'` to append to the end of the file if it exists.",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "The `mode` argument of `DataFrame.to_csv` accepts three string values: `'w'`, `'x'`, and `'a'`. `'w'` (the default) opens the file for writing and truncates any existing file. `'x'` opens the file for exclusive creation and raises an error if the file already exists. `'a'` opens the file in append mode, adding new data to the end of an existing file.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7079,
+    "output_tokens": 596,
+    "latency_s": 71.795,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0121",
+    "question": "When using `pandas.to_datetime` to convert an argument, what is the default behavior if invalid parsing occurs, and what alternative option is available?",
+    "ground_truth": "By default, if invalid parsing occurs when using `pandas.to_datetime`, an exception will be raised because the `errors` parameter is set to `'raise'`. The alternative option is to set `errors` to `'coerce'`, which will result in invalid parsing being set as `NaT` (Not a Time).",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "By default, pandas.to_datetime uses errors='raise', so any invalid parsing raises an exception. You can change this by passing errors='coerce', which will convert invalid parses to NaT instead of raising.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html"
+    ],
+    "hops": 2,
+    "input_tokens": 3123,
+    "output_tokens": 423,
+    "latency_s": 1.306,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0122",
+    "question": "What is the purpose of the `class_column` parameter in the `pandas.plotting.parallel_coordinates` function?",
+    "ground_truth": "The `class_column` parameter in `pandas.plotting.parallel_coordinates` is a string that specifies the column name in the input DataFrame (`frame`) which contains the class names to be used for the parallel coordinates plot.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The `class_column` argument tells `parallel_coordinates` which column in the DataFrame holds the class labels. It uses these labels to group the rows and assign a distinct color (or style) to each class when drawing the parallel coordinate lines.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.parallel_coordinates.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.parallel_coordinates.html"
+    ],
+    "hops": 3,
+    "input_tokens": 3785,
+    "output_tokens": 391,
+    "latency_s": 12.256,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0123",
+    "question": "In the NumPy C-API, how are dates and time differences internally represented?",
+    "ground_truth": "NumPy internally represents dates and time differences using an `int64` counter combined with a unit metadata struct. This structure allows for consistent handling of various time units and magnitudes within the C-API.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "In the NumPy C‑API dates (and timedeltas) are stored as a 64‑bit integer (npy_int64) together with a unit‑metadata struct. The typedefs npy_datetime and npy_timedelta are just npy_int64, and the struct PyArray_DatetimeMetaData holds the base unit (NPY_DATETIMEUNIT) and a multiplier (num) that together describe the resolution of the integer value.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/c-api/datetimes.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/c-api/datetimes.html"
+    ],
+    "hops": 5,
+    "input_tokens": 13383,
+    "output_tokens": 1031,
+    "latency_s": 73.081,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0124",
+    "question": "Can pandas' `rolling` window operations handle time-based windows, and if so, how is this typically specified?",
+    "ground_truth": "Yes, pandas' `rolling` window operations support specifying a window based on a time offset. This is typically done by passing a string representing a time offset (e.g., `'2D'` for 2 days) to the `window` parameter of the `rolling` method, rather than an integer representing a fixed number of observations. An example provided is `s.rolling(window='2D').sum()`.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "Yes. Pandas rolling can work with time‑based windows as long as the object has a DatetimeIndex (or you specify a datetime column via the on parameter). Instead of an integer count you pass a time offset string or a pandas DateOffset object to the window argument, e.g. df.rolling('5D').mean() or df.rolling(window=pd.Timedelta('2h')).sum(). When using a DataFrame with a datetime column you can write df.rolling('3D', on='date').sum().",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html"
+    ],
+    "hops": 6,
+    "input_tokens": 29847,
+    "output_tokens": 2192,
+    "latency_s": 152.923,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0125",
+    "question": "When using `numpy.testing.assert_array_almost_equal_nulp`, what mathematical condition must be satisfied between the input arrays `x` and `y` for an `AssertionError` *not* to be raised?",
+    "ground_truth": "For an `AssertionError` not to be raised by `numpy.testing.assert_array_almost_equal_nulp`, the following condition must be met: `abs(x - y) <= nulp * spacing(maximum(abs(x), abs(y)))`. If this condition is not satisfied, an assertion will be raised.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "`numpy.testing.assert_array_almost_equal_nulp` will not raise an AssertionError only if, for every element, the absolute difference between the corresponding entries of `x` and `y` is less than or equal to `nulp` times the spacing of the larger‑magnitude value. Formally, the condition is: `abs(x - y) <= nulp * spacing(max(abs(x), abs(y)))`. If this inequality holds for all elements, the arrays are considered equal within the specified ULP tolerance.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/routines.testing.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_array_almost_equal_nulp.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_array_almost_equal_nulp.html"
+    ],
+    "hops": 4,
+    "input_tokens": 12207,
+    "output_tokens": 1354,
+    "latency_s": 13.893,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0126",
+    "question": "What is the primary purpose of `pandas.api.extensions.ExtensionDtype` and what specific capabilities does it enable within the pandas ecosystem?",
+    "ground_truth": "The `pandas.api.extensions.ExtensionDtype` is a custom data type, designed to be paired with an `ExtensionArray`. Its primary purpose is to enable support for third-party and custom dtypes within the pandas ecosystem, allowing users to create rich data types that integrate cleanly with pandas operations such as grouping, joining, or aggregation.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The primary purpose of `pandas.api.extensions.ExtensionDtype` is to define a custom data type that can be paired with an `ExtensionArray`, allowing third‑party or user‑defined dtypes to be recognized by pandas. By implementing this interface, developers gain the ability to integrate new dtypes into pandas operations such as grouping, joining, aggregation, and indexing, control how missing values are represented, specify numeric/boolean behavior, provide metadata for hashing, and even support interoperability (e.g., with Apache Arrow) through methods like `__from_arrow__`.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.api.extensions.ExtensionDtype.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.api.extensions.ExtensionDtype.html"
+    ],
+    "hops": 3,
+    "input_tokens": 3912,
+    "output_tokens": 503,
+    "latency_s": 63.117,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0127",
+    "question": "When performing a deep copy of a pandas Series or DataFrame containing nested mutable Python objects (e.g., lists) within an 'object' dtype column using `copy(deep=True)`, if a nested element is modified in the original, will this modification be reflected in the deep copy? Explain why.",
+    "ground_truth": "Yes, if the original Series or DataFrame contains nested mutable Python objects within an 'object' dtype, modifying a nested element in the original will be reflected in the deep copy. This is because `deep=True` copies the references to these underlying Python objects, not the objects recursively themselves. Consequently, both the original and the deep copy will refer to the same mutable nested objects, causing changes to one to appear in the other.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "Yes. When you call `copy(deep=True)` on a Series or DataFrame that has an `object` dtype column holding mutable Python objects (like lists), pandas creates a new container but only copies the references to the underlying Python objects. The nested objects themselves are not recursively duplicated, unlike `copy.deepcopy`. Therefore, if you modify a nested element (e.g., append to a list) in the original, the same change will appear in the deep‑copied object because both containers still point to the same mutable object.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.copy.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.copy.html"
+    ],
+    "hops": 4,
+    "input_tokens": 10453,
+    "output_tokens": 1331,
+    "latency_s": 2.035,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0128",
+    "question": "What are the accepted values for the `diagonal` parameter when using `pandas.plotting.scatter_matrix`?",
+    "ground_truth": "The `diagonal` parameter in `pandas.plotting.scatter_matrix` can accept two values: 'hist' to display a histogram plot on the diagonal, or 'kde' for a Kernel Density Estimation plot on the diagonal.",
+    "library": "pandas",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The `diagonal` parameter accepts only two string values: `'hist'` for histogram plots or `'kde'` for kernel density estimation plots.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.scatter_matrix.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.scatter_matrix.html"
+    ],
+    "hops": 3,
+    "input_tokens": 4052,
+    "output_tokens": 425,
+    "latency_s": 61.859,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0129",
+    "question": "Beyond the core N-dimensional array (ndarray) objects, what specific categories of data-related objects, such as `dtype` or `ufunc`, are explicitly detailed under the Python API section of the NumPy reference manual?",
+    "ground_truth": "Under the Python API section of the NumPy reference manual, in addition to `ndarray` objects, specific categories of data-related objects that are explicitly detailed include Scalars, Data type objects (`dtype`), and Universal functions (`ufunc`). The manual provides comprehensive details on these components, describing what they are and what they do within NumPy's architecture.",
+    "library": "numpy",
+    "difficulty": "single_hop",
+    "pipeline": "pageindex",
+    "answer": "The Python API section lists several data‑related object categories besides the core ndarray: Array objects, Scalars, Data type objects (dtype), Data type promotion, Iterating over arrays, Standard array subclasses, Masked arrays, The array interface protocol, Datetimes and timedeltas, and Universal functions (ufunc).",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/index.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/index.html"
+    ],
+    "hops": 2,
+    "input_tokens": 4685,
+    "output_tokens": 369,
+    "latency_s": 1.215,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0130",
+    "question": "When applying a function with `pandas.DataFrame.apply` and `raw=False`, what type of objects are passed to the function, and what are the accepted values for the `axis` parameter?",
+    "ground_truth": "When `raw=False`, `pandas.DataFrame.apply` passes Series objects to the function, with their index being either the DataFrame's index (for `axis=0`) or columns (for `axis=1`). The `axis` parameter accepts values of `0` or `'index'` (to apply along columns) and `1` or `'columns'` (to apply along rows).",
+    "library": "pandas",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "With raw=False, each row or column is passed to the function as a pandas Series (its index matches the DataFrame’s index for axis=0 or the DataFrame’s columns for axis=1). The axis argument accepts 0 or 'index' to apply the function column‑wise, and 1 or 'columns' to apply it row‑wise.",
+    "pages_visited": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html",
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"
+    ],
+    "pages_used": [
+      "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html"
+    ],
+    "hops": 3,
+    "input_tokens": 7062,
+    "output_tokens": 659,
+    "latency_s": 11.804,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0131",
+    "question": "When using `numpy.random.RandomState.randint`, what is the sampling range if the `high` parameter is not specified, and what is the default `dtype` for the returned integers?",
+    "ground_truth": "If the `high` parameter is not provided (i.e., it is `None`), `numpy.random.RandomState.randint` returns random integers from the half-open interval `[0, low)`. This means the lowest possible value is 0, and the highest possible value is `low - 1`. The default data type for the result is `long`.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "If you omit the high argument, RandomState.randint samples integers in the half‑open interval [0, low) (0 inclusive, low exclusive). The default dtype is the C‑long type (np.int_ / np.intp), which is 32‑bit on Windows and 64‑bit on most 64‑bit platforms.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/random/legacy.html",
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.randint.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/random/generated/numpy.random.RandomState.randint.html"
+    ],
+    "hops": 6,
+    "input_tokens": 18180,
+    "output_tokens": 1316,
+    "latency_s": 63.754,
+    "cost_usd": 0.0
+  },
+  {
+    "id": "q0132",
+    "question": "What is the primary comparison method employed by `numpy.testing.assert_array_almost_equal_nulp`, and when is this method considered particularly robust?",
+    "ground_truth": "`numpy.testing.assert_array_almost_equal_nulp` compares two arrays relatively to their spacing. This method is described as relatively robust, especially for comparing arrays whose amplitude is variable. An `AssertionError` is raised if the absolute difference between `x` and `y` is larger than `nulp` times the spacing of the maximum absolute value between `x` and `y`.",
+    "library": "numpy",
+    "difficulty": "multi_hop",
+    "pipeline": "pageindex",
+    "answer": "`numpy.testing.assert_array_almost_equal_nulp` compares two arrays by measuring the difference between corresponding elements in units of the last place (ULPs), i.e., it checks that the absolute difference is within *nulp* times the spacing (the distance to the nearest representable floating‑point number). This ULP‑based, spacing‑relative comparison is especially robust for arrays whose values span a wide range of amplitudes, because it adapts to the relative precision of each element rather than relying on a fixed absolute tolerance.",
+    "pages_visited": [
+      "https://numpy.org/devdocs/reference/testing.html",
+      "https://numpy.org/devdocs/reference/index.html",
+      "https://numpy.org/devdocs/reference/routines.testing.html",
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_array_almost_equal_nulp.html"
+    ],
+    "pages_used": [
+      "https://numpy.org/devdocs/reference/generated/numpy.testing.assert_array_almost_equal_nulp.html"
+    ],
+    "hops": 6,
+    "input_tokens": 23501,
+    "output_tokens": 1173,
+    "latency_s": 85.131,
+    "cost_usd": 0.0
+  }
+]
