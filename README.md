@@ -1,9 +1,10 @@
-# Cross-Reference QA Benchmark: PageIndex vs FAISS
+
+#Cross-Reference QA Benchmark: PageIndex vs FAISS
 
 Benchmarks vectorless RAG (PageIndex) against vector RAG (FAISS) on cross-reference
 questions across NumPy and Pandas documentation.
 
-## Key Finding
+ #Key Finding
 
 On multi-hop questions where PageIndex successfully navigated to the target page,
 it achieved **90.4% accuracy vs 75.0% for FAISS (+15.4%)**. Even when navigation
